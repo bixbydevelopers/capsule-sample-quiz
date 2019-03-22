@@ -1,0 +1,4 @@
+structure (CurrentQuestion) {
+  role-of (Question)
+  description (Current question asked from the user)
+}

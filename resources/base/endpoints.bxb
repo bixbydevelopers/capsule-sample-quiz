@@ -1,0 +1,16 @@
+endpoints {
+  action-endpoints {
+    action-endpoint (StartQuiz) {
+      accepted-inputs (searchTerm)
+      local-endpoint (StartQuiz.js)
+    }
+    action-endpoint (DoQuiz) {
+      accepted-inputs (quiz, answer)
+      local-endpoint (DoQuiz.js)
+    }
+    action-endpoint (ConstructAnswerFromOption) {
+      accepted-inputs (option)
+      local-endpoint (ConstructAnswerFromOption.js)
+    }
+  }
+}

@@ -1,0 +1,23 @@
+structure (Question) {
+  property (question) {
+    type (core.Text)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+  property (options) {
+    type (Option)
+    min (Optional) max (Many)
+    visibility (Private)
+  }
+  property (answer) {
+    type (core.Integer)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+  //question formatted for speech channel
+  property (questionToSpeak) {
+    type (core.Text)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+}

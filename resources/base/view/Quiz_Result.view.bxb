@@ -1,0 +1,18 @@
+result-view {
+  match: Quiz (quiz)
+  refresh {
+    delay (5)
+    condition (exists(quiz) && !quiz.state.completed)
+    on-refresh {
+      intent {
+        goal: DoQuiz
+        value: $expr(quiz)
+      }
+    }
+  }
+  render {
+    if (!quiz.state.started) {
+      image-list-of (quiz.image)
+    }
+  }
+}

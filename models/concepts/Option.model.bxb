@@ -1,0 +1,14 @@
+structure (Option) {
+  property (text) {
+    type (Answer)
+    min (Required) max (One)
+    visibility (Private)
+  }
+  //alias used for options (e.g. first option "A", second option "B", etc)
+  property (alias) {
+    type (core.Text)
+    min (Required) max (One)
+    visibility (Private)
+  }
+
+}

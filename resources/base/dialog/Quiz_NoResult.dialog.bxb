@@ -1,0 +1,4 @@
+dialog (NoResult) {
+  match: Quiz
+  template("Nothing found")
+}

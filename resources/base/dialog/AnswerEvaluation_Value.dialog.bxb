@@ -1,0 +1,8 @@
+dialog (Value) {
+  match: AnswerEvaluation(evaluation)
+  if (evaluation) {
+    template ("Correct")
+  } else {
+    template ("Incorrect")
+  }
+}

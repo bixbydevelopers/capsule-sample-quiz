@@ -1,0 +1,40 @@
+input-view {
+  match: Answer(this) {
+    to-input: DoQuiz(action)
+  }
+  message {
+    template ("#{value(action.quiz.state.currentQuestion.question)}") {
+      speech ("#{value(action.quiz.state.currentQuestion.questionToSpeak)}")
+    }
+  }
+  render {
+    if (size(action.quiz.state.currentQuestion.options) > 0) {
+      selection-of (action.quiz.state.currentQuestion.options) {
+        where-each (option) {
+          cell-card {
+            slot2 {
+              content {
+                primary {
+                  template ("[#{value(option.alias)}. ]#{value(option.text)}")
+                }
+              }
+            }
+          }
+        }
+      }
+    } else {
+      form {
+        elements {
+          text-input {
+            id (answer)
+            type (Answer)
+          }
+        }
+        on-submit {
+          goal: Answer
+          value: viv.core.FormElement(answer)
+        }
+      }
+    }
+  }
+}

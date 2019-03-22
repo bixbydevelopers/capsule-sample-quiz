@@ -1,0 +1,32 @@
+structure (QuizState) {
+  property (currentQuestion) {
+    type (Question)
+    min (Optional) max (One)
+  }
+  property (currentQuestionNumber) {
+    type (CurrentQuestionNumber)
+    min (Required) max (One)
+  }
+  property (correctAnswerCount) {
+    type (CorrectAnswerCount)
+    min (Required) max (One)
+  }
+  property (questionsLeftCount) {
+    type (QuestionsLeftCount)
+    min (Required) max (One)
+  }
+  property (lastAnswerCorrect) {
+    type (AnswerEvaluation)
+    min (Optional) max (One)
+  }
+  property (started) {
+    type (core.Boolean)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+  property (completed) {
+    type (core.Boolean)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+}

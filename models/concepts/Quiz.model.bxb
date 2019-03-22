@@ -1,0 +1,26 @@
+structure (Quiz) {
+  property (title) {
+    type (core.Text)
+    min (Required) max (One)
+    visibility (Private)
+  }
+  property (tags) {
+    type (core.Text)
+    min (Optional) max (Many)
+    visibility (Private)
+  }
+  property (questions) {
+    type (Question)
+    min (Required) max (Many)
+    visibility (Private)
+  }
+  property (image) {
+    type (image.Image)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+  property (state) {
+    type (QuizState)
+    min (Required) max (One)
+  }
+}
