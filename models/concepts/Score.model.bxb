@@ -1,0 +1,31 @@
+structure (Score) {
+  description (current response to user's answer)
+
+  property (question) {
+    type (Question)
+    min (Required) max (One)
+    visibility (Private)
+  }
+
+  property (answer) {
+    type (Answer)
+    description (user's answer)
+    min (Required) max (One)
+    visibility (Private)
+  }
+
+  property (expectedAnswer) {
+    type (Answer)
+    description (expected answer)
+    min (Required) max (One)
+    visibility (Private)
+  }
+
+  property (evaluation) {
+    type (core.Boolean)
+    description (correct if true, incorrect if false)
+    min (Required) max (One)
+    visibility (Private)
+  }
+
+}

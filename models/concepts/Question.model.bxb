@@ -1,23 +1,30 @@
 structure (Question) {
-  property (question) {
+  property (textToDisplay) {
     type (core.Text)
-    min (Optional) max (One)
+    min (Required) max (One)
     visibility (Private)
+    description(question to be displayed)
+  }
+  property (textToSpeak) {
+    type (core.Text)
+    min (Required) max (One)
+    visibility (Private)
+    description(question formatted for speech channel)
   }
   property (options) {
     type (Option)
     min (Optional) max (Many)
     visibility (Private)
   }
-  property (answer) {
-    type (core.Integer)
-    min (Optional) max (One)
+  property (correctAnswer) {
+    type (CorrectAnswer)
+    min (Required) max (One)
     visibility (Private)
   }
-  //question formatted for speech channel
-  property (questionToSpeak) {
-    type (core.Text)
+  property (index) {
+    type (core.Integer)
     min (Optional) max (One)
+    description (index of the question in the quiz)
     visibility (Private)
   }
 }

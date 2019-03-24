@@ -1,0 +1,12 @@
+template-macro-def (scoreBook-statement) {
+  params {
+    param (scoreBook) {
+      type (ScoreBook)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    template("That's #{number(scoreBook.correctAnswerCount)} out of #{number(scoreBook.questionsAnsweredCount)}!")
+  }
+}

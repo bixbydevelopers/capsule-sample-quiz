@@ -1,8 +1,8 @@
 result-view {
   match: Quiz (quiz)
   refresh {
-    delay (5)
-    condition (exists(quiz) && !quiz.state.completed)
+    delay (quiz.autoAdvance)
+    condition (exists(quiz) && !quiz.state.completed && exists(quiz.autoAdvance) && quiz.autoAdvance > 0)
     on-refresh {
       intent {
         goal: DoQuiz
@@ -10,9 +10,60 @@ result-view {
       }
     }
   }
+  conversation-drivers {
+    conversation-driver {
+      if (exists(quiz) && !quiz.state.completed) {
+        if (quiz.state.started) {
+          template ("Next question")
+        } else {
+          template ("First question")
+        }
+      }
+    }
+  }
   render {
     if (!quiz.state.started) {
       image-list-of (quiz.image)
+    } else {
+      layout {
+        section {
+          content {
+            
+            cell-card {
+              slot1 {
+                image {
+                  shape (Circle)
+                  url {
+                    if (quiz.state.lastScore.evaluation == true) {
+                      template ("/icons/correct.jpg")
+                    } else {
+                      template ("/icons/incorrect.jpg")
+                    }
+                  }
+                }
+              }
+              slot2 {
+                content {
+                  order (PrimarySecondary)
+                  primary {
+                    template ("Correct answer: '#{value(quiz.state.lastScore.expectedAnswer)}'")
+                  }
+                  secondary {
+                    if (quiz.state.lastScore.evaluation == false) {
+                      template ("Your answer: '#{value(quiz.state.lastScore.answer)}'")
+                    }
+                  }
+                }
+              }
+            }
+            paragraph {
+              value {
+                template ("[#{value(quiz.state.lastScore.question.correctAnswer.explanation)}]")
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,16 @@
+template-macro-def (score-statement) {
+  params {
+    param (score) {
+      type (Score)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    if (score.evaluation) {
+      template ("Correct!")
+    } else {
+      template ("Incorrect!")
+    }
+  }
+}

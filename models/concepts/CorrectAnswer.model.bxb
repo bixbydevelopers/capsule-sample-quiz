@@ -1,0 +1,15 @@
+structure (CorrectAnswer) {
+
+  property (acceptedAnswers) {
+    type (core.Text)
+    min (Required) max (Many)
+    description (all accepted answers)
+    visibility (Private)
+  }
+
+  property (explanation) {
+    type (core.Text)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+}

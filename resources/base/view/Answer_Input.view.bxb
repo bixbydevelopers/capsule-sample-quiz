@@ -3,8 +3,8 @@ input-view {
     to-input: DoQuiz(action)
   }
   message {
-    template ("#{value(action.quiz.state.currentQuestion.question)}") {
-      speech ("#{value(action.quiz.state.currentQuestion.questionToSpeak)}")
+    template ("#{value(action.quiz.state.currentQuestion.textToDisplay)}") {
+      speech ("#{value(action.quiz.state.currentQuestion.textToSpeak)}")
     }
   }
   render {

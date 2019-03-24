@@ -2,7 +2,8 @@ module.exports = [
   {
     title: "Funny Quiz",
     tags: ["funny", "animal"], //used to find this quiz
-    image:{url: '/images/Dogs.jpg'}, //optional
+    image: {url: '/images/Dogs.jpg'}, //optional
+    autoAdvance: 5, //auto advance after 5 seconds
     questions: [
       {
         question: "What do cats like to eat on a hot day?",
@@ -12,7 +13,10 @@ module.exports = [
       {
         question: "What do you call a cold dog?",
         options: ["Frozen", "Hot dog", "Chilli Dog"],
-        answer: 2
+        //you can enter the answer string instead of using index
+        answer: "Chilli Dog",
+        //you can optionally provide an explanation
+        explanation: "Because it's cold. Get it?",
       }
     ]
   },
@@ -29,12 +33,19 @@ module.exports = [
       {
         question: "Which president said 'Men are not prisoners of fate, but only prisoners of their own minds'?",
         options: ["Hoover", "Roosevelt", "Truman"],
-        answer: 1
+        //you can provide a list of accepted answers instead of giving an index to the options
+        answer: ["Roosevelt", "FDR", , "Franklin Roosevelt", "Franklin D Roosevelt"],
       },
       {
         question: "Which president said 'A leadership is someone who brings people together'?",
-        options: ["Obama", "Bush", "Lincoln"],
-        answer: 1
+        //options are optional!
+        //options: ["Obama", "Bush", "Lincoln"],
+
+        //you have to provide a list of accepted answers if there are no options
+        answer: ["Bush", "George W Bush", "George W" , "George Bush"],
+
+        //you can optionally provide an explanation
+        explanation: "Bush used to say things like that!"
       }
     ]
   },

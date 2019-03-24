@@ -1,19 +1,23 @@
 action (DoQuiz) {
   type (Commit)
+  description (Evaluates answer and updates the quiz)
   collect {
     input (quiz) {
       type (Quiz)
       min (Required) max (One)
-      default-init {
-        intent {
-          goal: StartQuiz
-        }
-      }
     }
     input (answer) {
       type (Answer)
-      min (Required) max (One)      
+      min (Optional) max (One)
     }
   }
-  output (Quiz)
+  output (Quiz) {
+    throws {
+      error (MissingAnswer) {
+        on-catch {
+          prompt (answer)
+        }
+      }
+    }
+  }
 }

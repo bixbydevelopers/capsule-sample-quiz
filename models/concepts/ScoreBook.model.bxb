@@ -1,0 +1,23 @@
+structure (ScoreBook) {
+
+  property (scores) {
+    type (Score)
+    min (Optional) max (Many)
+  }
+
+  property (correctAnswerCount) {
+    type (CorrectAnswerCount)
+    min (Required) max (One)
+    description (How many correct answers so far?)
+  }
+
+  property (questionsAnsweredCount) {
+    type (QuestionsAnsweredCount)
+    min (Required) max (One)
+  }
+
+  property (questionsLeftCount) {
+    type (QuestionsLeftCount)
+    min (Required) max (One)
+  }
+}

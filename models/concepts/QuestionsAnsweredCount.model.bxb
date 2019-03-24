@@ -1,0 +1,3 @@
+integer  (QuestionsAnsweredCount) {
+  description(How many questions answered so far)
+}

@@ -23,4 +23,13 @@ structure (Quiz) {
     type (QuizState)
     min (Required) max (One)
   }
+  property (scoreBook) {
+    type (ScoreBook)
+    min (Optional) max (One)
+  }
+  property (autoAdvance) {
+    type (core.Integer)
+    min (Optional) max (One)
+    description (Seconds to wait before auto advancing the quiz to the next question. No auto advance if this value does not exists or if it is less than 1)
+  }
 }

@@ -1,11 +1,4 @@
 template-macro-def (quiz-completion-statement) {
-  params {
-    param (quizState) {
-      type (QuizState)
-      min (Required)
-      max (One)
-    }
-  }
   content {
     template(" No more questions left. Good job!")
   }
