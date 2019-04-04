@@ -2,7 +2,7 @@ module.exports = [
   {
     title: "Funny Quiz",
     tags: ["funny", "animal"], //used to find this quiz
-    //image: {url: '/images/Dogs.jpg'}, //optional
+    image: {url: '/images/Dogs.jpg'}, //optional
     questions: [
       {
         question: "What do cats like to eat on a hot day?",
