@@ -47,7 +47,8 @@ function buildQuestionFromJson(questionJson, index) {
       index: index,
       correctAnswer: {
          acceptedAnswers: buildAcceptedAnswers(questionJson.answer, options),
-         explanation: questionJson.explanation
+         explanation: questionJson.explanation,
+         image: questionJson.image
       }
     }
     return question

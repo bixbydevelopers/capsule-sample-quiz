@@ -12,4 +12,10 @@ structure (CorrectAnswer) {
     min (Optional) max (One)
     visibility (Private)
   }
+  
+  property (image) {
+    type (core.Text)
+    min (Optional) max (One)
+    visibility (Private)
+  }
 }

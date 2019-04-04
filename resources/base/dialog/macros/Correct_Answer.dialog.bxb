@@ -1,0 +1,16 @@
+template-macro-def (correct-answer) {
+  params {
+    param (state) {
+      type (QuizState)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    if (state.lastScore.evaluation) {
+      template ("")
+    } else {
+      template (" The correct answer was #{value(state.lastScore.expectedAnswer)}. ") 
+    }
+  }
+}

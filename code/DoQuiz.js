@@ -1,4 +1,5 @@
 var console = require ("console")
+var fail = require ("fail") 
 
 // DoQuiz
 exports.function = function(quiz, answer) {

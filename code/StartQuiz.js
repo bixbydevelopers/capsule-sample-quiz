@@ -1,7 +1,7 @@
 var console = require("console")
 var lib = require("./lib/util");
 
-const QUIZZES = require("./lib/quizzes");
+const QUIZZES = require("./quizzes");
 
 // FindQuiz
 exports.function = function(searchTerm) {

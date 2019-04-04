@@ -3,11 +3,13 @@ dialog (Result) {
   //Gives a summary of the quiz state so far
   if (quiz.state.completed) {
     //last dialog - quiz is complete
-    template ("#{macro('score-statement', quiz.state.lastScore)} #{macro('scoreBook-statement', quiz.scoreBook)} #{macro('quiz-completion-statement')} ")
+    template ("#{macro('score-statement', quiz.state.lastScore)} #{macro('scoreBook-statement', quiz.scoreBook)} #{macro('quiz-completion-statement')}") 
+      {speech ("#{macro('score-statement', quiz.state.lastScore)} #{macro('correct-answer', quiz.state)} #{macro('scoreBook-statement', quiz.scoreBook)} #{macro('quiz-completion-statement')}")}
   } else-if (!quiz.state.started) {
     //first dialog - asking user if the user is ready for the first question
     template ("#{value(quiz.title)}! #{macro('quiz-total-questions-statement', quiz.scoreBook.questionsLeftCount)}")
   } else {
-    template ("#{macro('score-statement', quiz.state.lastScore)} #{macro('scoreBook-statement', quiz.scoreBook)} #{macro('quiz-questions-left-statement', quiz.scoreBook.questionsLeftCount)}")
+    template ("#{macro('score-statement', quiz.state.lastScore)} #{macro('scoreBook-statement', quiz.scoreBook)} #{macro('quiz-questions-left-statement', quiz.scoreBook.questionsLeftCount)}") 
+      { speech ("#{macro('score-statement', quiz.state.lastScore)} #{macro('correct-answer', quiz.state)} #{macro('scoreBook-statement', quiz.scoreBook)} #{macro('quiz-questions-left-statement', quiz.scoreBook.questionsLeftCount)}")}
   }
 }

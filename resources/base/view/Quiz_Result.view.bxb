@@ -60,7 +60,14 @@ result-view {
               value {
                 template ("[#{value(quiz.state.lastScore.question.correctAnswer.explanation)}]")
               }
+              style (Title_S)
             }
+            if (exists(quiz.state.lastScore.question.correctAnswer.image)) {
+            image {
+              url("[#{value(quiz.state.lastScore.question.correctAnswer.image)}]")
+              aspect-ratio(1:1)
+            }
+          }
           }
         }
       }
