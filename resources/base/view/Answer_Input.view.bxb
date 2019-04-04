@@ -3,9 +3,8 @@ input-view {
     to-input: UpdateQuiz(action)
   }
   
-  //I wanted to take this into Answer_Input.dialog.bxb but platform won't pick it up from there.  
   message {
-    if (!action.state.quiz.explainAnswer && exists(action.state.lastScore)) { //did not pause to explain answer so explain before asking next question first
+    if (exists(action.state.lastScore)) {
       template ("#{macro('score-statement', action.state.lastScore)} #{value(action.state.currentQuestion.textToDisplay)}") {
         speech ("#{macro('score-statement', action.state.lastScore)}... #{value(action.state.currentQuestion.textToSpeak)}")
       }

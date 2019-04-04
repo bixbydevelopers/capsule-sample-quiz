@@ -7,12 +7,6 @@ structure (Score) {
     visibility (Private)
   }
   
-  property (explained) {
-    type (core.Boolean)
-    min (Optional) max (One)
-    visibility (Private)
-  }
-
   property (answer) {
     type (Answer)
     description (user's answer)

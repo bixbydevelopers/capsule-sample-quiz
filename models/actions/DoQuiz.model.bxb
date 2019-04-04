@@ -11,18 +11,10 @@ action (DoQuiz) {
         }
       }
       validate {
-        if (!state.aborted) {
-          if (state.quiz.explainAnswer && exists(state.lastScore) && !state.lastScore.explained) {
-            replan {
-              intent {
-                goal: ExplainLastScore
-              }
-            }
-          } else-if (!state.completed) {
-            replan {
-              intent {
-                goal: UpdateQuiz
-              }
+        if (!state.aborted && !state.completed) {
+          replan {
+            intent {
+              goal: UpdateQuiz
             }
           }
         }

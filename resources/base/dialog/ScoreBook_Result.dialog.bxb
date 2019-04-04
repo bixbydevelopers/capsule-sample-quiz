@@ -3,11 +3,9 @@ dialog (Result) {
     from-output: DoQuiz (action)
   }
 
-  if (!action.state.quiz.explainAnswer && exists(action.state.lastScore)) { //did not pause to explain answer so explain before asking next question first
+  if (exists(action.state.lastScore)) {
     template ("#{macro('score-statement', action.state.lastScore)} #{macro('scoreBook-statement', scoreBook)} #{macro('quiz-completion-statement')} ") {
       speech ("#{macro('score-statement', action.state.lastScore)} #{macro('scoreBook-statement', scoreBook)} ...... #{macro('quiz-completion-statement')} ")
     }
-  } else {
-    template ("#{macro('scoreBook-statement', scoreBook)} #{macro('quiz-completion-statement')} ")
   }
 }
