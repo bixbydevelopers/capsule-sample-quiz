@@ -1,0 +1,18 @@
+action (ExplainLastScore) {
+  description (Pause the quiz (on a confirmation prompt) to explain the answer to last question)
+  type (UpdateTransaction)
+  collect {
+    input (state) {
+      type (State)
+      min (Required) max (One)
+    }
+  }
+  confirmed-by (core.Confirmation) {
+    on-abort {
+      intent {
+        goal: AbortQuiz
+      }
+    }
+  }
+  output (State)
+}

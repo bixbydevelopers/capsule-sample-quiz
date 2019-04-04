@@ -7,6 +7,6 @@ template-macro-def (scoreBook-statement) {
     }
   }
   content {
-    template("That's #{number(scoreBook.correctAnswerCount)} out of #{number(scoreBook.questionsAnsweredCount)}!")
+    template("#{number(scoreBook.correctAnswerCount)} out of #{number(scoreBook.questionsAnsweredCount)}!")
   }
 }

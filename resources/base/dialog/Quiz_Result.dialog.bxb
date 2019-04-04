@@ -1,13 +1,9 @@
 dialog (Result) {
   match: Quiz(quiz)
-  //Gives a summary of the quiz state so far
-  if (quiz.state.completed) {
-    //last dialog - quiz is complete
-    template ("#{macro('score-statement', quiz.state.lastScore)} #{macro('scoreBook-statement', quiz.scoreBook)} #{macro('quiz-completion-statement')} ")
-  } else-if (!quiz.state.started) {
-    //first dialog - asking user if the user is ready for the first question
-    template ("#{value(quiz.title)}! #{macro('quiz-total-questions-statement', quiz.scoreBook.questionsLeftCount)}")
+  //first dialog - asking user if the user is ready for the first question
+  if (size(quiz)==1) {
+    template ("#{macro('quiz-summary-statement', quiz)}")
   } else {
-    template ("#{macro('score-statement', quiz.state.lastScore)} #{macro('scoreBook-statement', quiz.scoreBook)} #{macro('quiz-questions-left-statement', quiz.scoreBook.questionsLeftCount)}")
+    template ("I found #{size(quiz)} #{concept(quiz)}")
   }
 }

@@ -1,0 +1,5 @@
+dialog (Confirmation) {
+  match: ExplainLastScore (explain)
+  //Gives a summary of the quiz state so far - need to remove the message in ExplainLastScore_Confirmation.view.bxb first to make this trigger
+  template ("#{macro('score-statement', explain.state.lastScore)} #{macro('scoreBook-statement', explain.state.scoreBook)} #{macro('quiz-questions-left-fragment', explain.state.scoreBook.questionsLeftCount)}. Do you want to answer the next question?")
+}

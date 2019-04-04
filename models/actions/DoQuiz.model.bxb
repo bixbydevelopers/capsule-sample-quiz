@@ -1,23 +1,33 @@
 action (DoQuiz) {
+  description (Keep prompting the user for answers until quiz is completed or aborted.)
   type (Commit)
-  description (Evaluates answer and updates the quiz)
   collect {
-    input (quiz) {
-      type (Quiz)
+    input (state) {
+      type (State)
       min (Required) max (One)
-    }
-    input (answer) {
-      type (Answer)
-      min (Optional) max (One)
-    }
-  }
-  output (Quiz) {
-    throws {
-      error (MissingAnswer) {
-        on-catch {
-          prompt (answer)
+      default-init {
+        intent {
+          goal: StartQuiz
+        }
+      }
+      validate {
+        if (!state.aborted) {
+          if (state.quiz.explainAnswer && exists(state.lastScore) && !state.lastScore.explained) {
+            replan {
+              intent {
+                goal: ExplainLastScore
+              }
+            }
+          } else-if (!state.completed) {
+            replan {
+              intent {
+                goal: UpdateQuiz
+              }
+            }
+          }
         }
       }
     }
   }
+  output (ScoreBook)
 }

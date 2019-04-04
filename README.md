@@ -11,4 +11,4 @@ Ask Bixby to start a quiz:
 - You can customize the Quiz NoResult dialog (`resources/base/dialog/Quiz_NoResult.dialog.bxb`)
 - You can customize the Quiz Result dialog by directly modifying the `resources/base/dialog/Quiz_Result.dialog.bxb` or by modifying the dialog macros under `/dialog/macros/`.
 - This sample capsule is only slightly trained. You need to add more training especially for use cases where user wants to start a specific quiz, e.g. "start a funny quiz" 
-- If your quiz has an `autoAdvance` then it will be automatically refreshed to move to next question. This might be the desired user experience for most cases but it will make debugging harder. You can comment out the autoAdvance feature and add it only once you have finished development. 
+- If your quiz has `explainAnswer` then it will explain answer to each question before moving to the next question. 

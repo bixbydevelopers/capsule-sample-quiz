@@ -1,0 +1,25 @@
+layout-macro-def(scoreBook) {
+  params {
+    param (scoreBook) {
+      type (ScoreBook)
+      min (Required)
+      max (One)
+    }
+  }
+
+  content {
+    section {
+      content {
+        for-each (scoreBook.scores) {
+          as (score) {
+            layout-macro ("score") {
+              param(score) {
+                expression (score)
+              }              
+            }
+          }
+        }
+      }
+    }
+  }
+}

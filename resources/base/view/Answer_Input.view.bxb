@@ -1,15 +1,23 @@
 input-view {
   match: Answer(this) {
-    to-input: DoQuiz(action)
+    to-input: UpdateQuiz(action)
   }
+  
+  //I wanted to take this into Answer_Input.dialog.bxb but platform won't pick it up from there.  
   message {
-    template ("#{value(action.quiz.state.currentQuestion.textToDisplay)}") {
-      speech ("#{value(action.quiz.state.currentQuestion.textToSpeak)}")
+    if (!action.state.quiz.explainAnswer && exists(action.state.lastScore)) { //did not pause to explain answer so explain before asking next question first
+      template ("#{macro('score-statement', action.state.lastScore)} #{value(action.state.currentQuestion.textToDisplay)}") {
+        speech ("#{macro('score-statement', action.state.lastScore)}... #{value(action.state.currentQuestion.textToSpeak)}")
+      }
+    } else {
+      template ("#{value(action.state.currentQuestion.textToDisplay)}") {
+        speech ("#{value(action.state.currentQuestion.textToSpeak)}")
+      }
     }
   }
   render {
-    if (size(action.quiz.state.currentQuestion.options) > 0) {
-      selection-of (action.quiz.state.currentQuestion.options) {
+    if (size(action.state.currentQuestion.options) > 0) {
+      selection-of (action.state.currentQuestion.options) {
         where-each (option) {
           cell-card {
             slot2 {

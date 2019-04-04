@@ -1,0 +1,13 @@
+dialog (Concept) {
+  match {
+    Quiz (this)
+  }
+  switch (plural(this)) {
+    case (One) {
+      template (quiz)
+    }
+    default {
+      template (quizzes)
+    }
+  }
+}

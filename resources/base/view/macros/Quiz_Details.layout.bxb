@@ -1,0 +1,27 @@
+layout-macro-def(quiz-details) {
+  params {
+    param (quiz) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    image-card {
+      title-area {
+        slot1 {
+          text ("#{value(quiz.title)}")
+        }
+        slot2 {
+          single-line {
+            text ("#{number(size(quiz.questions))} questions")
+          }
+        }
+      }
+      image-url {
+        template ("[#{value(quiz.image.url)}]")
+      }
+    }
+  }
+
+}

@@ -1,0 +1,16 @@
+action (UpdateQuiz) {
+  description (Evaluate user's answer and updates the quiz state.)
+  type (UpdateTransaction)
+  collect {
+    input (state) {
+      type (State)
+      min (Required) max (One)
+    }
+    input (answer) {
+      type (Answer)
+      min (Required) max (One)
+    }
+  }  
+  
+  output (State)
+}

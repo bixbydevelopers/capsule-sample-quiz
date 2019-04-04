@@ -1,0 +1,6 @@
+dialog (Result) {
+  match: State (state) {
+    from-output: AbortQuiz
+  }
+  template ("#{macro('scoreBook-statement', state.scoreBook)} #{macro('quiz-abort-statement')}")
+}

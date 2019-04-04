@@ -1,0 +1,13 @@
+result-view {
+  match {
+    State(state)
+  }
+
+  render {
+    layout-macro ("scoreBook") {
+      param(scoreBook) {
+        expression (state.scoreBook)
+      }
+    }
+  }
+}

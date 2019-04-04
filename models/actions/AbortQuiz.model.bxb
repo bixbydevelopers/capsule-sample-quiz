@@ -1,0 +1,11 @@
+action (AbortQuiz) {
+  type (CancelTransaction)
+  description (Abort the quiz and set the quiz state to aborted)
+  collect {
+    input (state) {
+      type (State)
+      min (Required) max (One)
+    }
+  }
+  output (State)
+}

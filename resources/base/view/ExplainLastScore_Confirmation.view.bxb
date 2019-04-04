@@ -1,0 +1,47 @@
+confirmation-view {
+  match {
+    core.Confirmation {
+      confirming {
+        ExplainLastScore (explain)
+      }
+    }
+  }
+  
+  //I wanted to take this into ExplainLastScore_Confirmation.dialog.bxb but platform won't pick it up from there.
+  message {
+    template ("#{macro('score-statement', explain.state.lastScore)} #{macro('advance-quiz-question', explain.state.scoreBook.questionsLeftCount)}")
+  
+  }
+  render {
+    layout {      
+      section {
+        content {
+          layout-macro ("score") {
+            param(score) {
+              expression (explain.state.lastScore)
+            }              
+          }
+        }
+        title {
+          template ("[#{value(explain.state.lastScore.question.textToDisplay)}]")
+        }
+      }
+      section {
+        content {
+          cell-card {
+            slot2 {
+              content {
+                primary {
+                  template ("#{macro('scoreBook-statement', explain.state.scoreBook)}")
+                }
+              }
+            }
+            slot3 {
+              label("#{macro('quiz-questions-left-fragment', explain.state.scoreBook.questionsLeftCount)}")
+            }
+          }
+        }
+      }
+    }
+  }
+}

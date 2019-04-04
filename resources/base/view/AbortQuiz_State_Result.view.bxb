@@ -1,0 +1,21 @@
+result-view {
+  match {
+    State(state) {
+      from-output: AbortQuiz
+    }
+  }
+
+  conversation-drivers {
+    conversation-driver {
+      template ("Take another quiz")
+    }
+  }
+  
+  render {
+    layout-macro ("scoreBook") {
+      param(scoreBook) {
+        expression (state.scoreBook)
+      }              
+    }
+  }
+}

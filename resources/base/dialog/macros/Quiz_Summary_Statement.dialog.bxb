@@ -1,0 +1,16 @@
+template-macro-def (quiz-summary-statement) {
+  params {
+    param (quiz) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    if (size(quiz.questions) == 1) {
+      template ("#{value(quiz.title)} has one question.")
+    } else {
+        template ("#{value(quiz.title)} has #{size(quiz.questions)} questions.")
+    }
+  }
+}
