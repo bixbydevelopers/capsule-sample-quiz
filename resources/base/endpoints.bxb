@@ -12,10 +12,6 @@ endpoints {
       accepted-inputs (state, answer)
       local-endpoint (UpdateQuiz.js)
     }
-    action-endpoint (ExplainLastScore) {
-      accepted-inputs (state)
-      local-endpoint (ExplainLastScore.js)
-    }
     action-endpoint (AbortQuiz) {
       accepted-inputs (state)
       local-endpoint (AbortQuiz.js)

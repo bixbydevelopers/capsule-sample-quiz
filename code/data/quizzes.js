@@ -23,7 +23,6 @@ module.exports = [
     title: "President names",
     tags: ["president", "presidents", "quote", "quotes", "historical", "history"], //used to find this quiz
     image:{url: '/images/President.jpg'}, //optional
-    explainAnswer: true,
     questions: [
       {
         question: "Which president said 'Efforts and courage are not enough without purpose and direction.'?",

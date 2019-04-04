@@ -27,10 +27,4 @@ structure (Quiz) {
     visibility (Private)
   }
 
-  property (explainAnswer) {
-    description (Should the answers be explained to the user before advancing to the next question?)
-    type (core.Boolean)
-    min (Optional) max (One)
-  }
-
 }

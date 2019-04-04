@@ -1,5 +1,5 @@
 train (t-pgdh4u5rttvxn2lj5lcp6wr9k) {
-  utterance ("[g:DoQuiz,r:StartQuiz] Start a (funny)[v:SearchTerm] quiz")
-  plan (Y2BnEEutSMwtyEnVKyzNrNILTs4vSnXKz89mEEYRd8kPBFIMQqiKSxJLUtENKEksKgGrFUQRBwuJogi5ZealgIXFUU1ITSxKzghJLcplYGNgZGBiYGZgYWAFshmQeIxgHgQzAMUYgfLMDAwA)
-  last-modified (1554401215916)
+  utterance ("[g:DoQuiz] Start a (funny)[v:SearchTerm] quiz")
+  plan (Y2BnEEutSMwtyEnVKyzNrNILTs4vSnXKz89mEEYRd8kPBFIMQqiKSxJLUtENKEksKgGrFUQRBwuJogi5ZealgIXFUU1ITSxKzghJLcplYGNgZGBiYGZgYWAFshmQeIxgHgQzAEUZQfIA)
+  last-modified (1554422152775)
 }
