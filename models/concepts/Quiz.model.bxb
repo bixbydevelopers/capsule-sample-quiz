@@ -7,7 +7,7 @@ structure (Quiz) {
   }
 
   property (tags) {
-    description (Tags used to match user)
+    description (Labels attached to this quiz to enable searching for the quiz by keyword)
     type (core.Text)
     min (Optional) max (Many)
     visibility (Private)

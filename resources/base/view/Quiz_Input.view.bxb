@@ -2,8 +2,10 @@ input-view {
   match {
     Quiz(quizzes)
   }
+  
+  
   render {
-
+    
     if ($handsFree) {
       selection-of (quizzes) {
         navigation-mode {        

@@ -1,0 +1,12 @@
+template-macro-def (quiz-not-found-statement) {
+  params {
+    param (searchTerm) {
+      type (SearchTerm)
+      min (Optional)
+      max (One)
+    }
+  }
+  content {
+    template("I didn't find any quiz[ matching #{value(searchTerm)}].")
+  }
+}

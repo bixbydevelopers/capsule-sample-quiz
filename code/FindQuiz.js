@@ -10,7 +10,7 @@ exports.function = function(searchTerm) {
 
   //filter based on searchTerm (note that if you use a web api then filtering can be done in the web API itself)
   if (searchTerm) {
-    quizzesJson = lib.findItems(QUIZZES, searchTerm)
+    quizzesJson = lib.findItems(quizzesJson, searchTerm)
   }
   var quizzes = []
   //read the questions in the quiz and initialize the state
@@ -18,7 +18,7 @@ exports.function = function(searchTerm) {
     var quiz = quizzesJson[i]
     var questions = lib.buildQuestionsFromJson(quiz)
     
-    //cannot strt a quiz without any questions
+    //cannot start a quiz without any questions
     if (!questions || !questions.length) {
       console.log("Chosen quiz has no questions!")
     } else {
