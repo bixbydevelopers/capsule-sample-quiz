@@ -6,7 +6,7 @@ structure (Score) {
     min (Required) max (One)
     visibility (Private)
   }
-
+  
   property (answer) {
     type (Answer)
     description (user's answer)

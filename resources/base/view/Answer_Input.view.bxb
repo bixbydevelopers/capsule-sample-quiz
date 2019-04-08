@@ -1,15 +1,22 @@
 input-view {
   match: Answer(this) {
-    to-input: DoQuiz(action)
+    to-input: UpdateQuiz(action)
   }
+  
   message {
-    template ("#{value(action.quiz.state.currentQuestion.textToDisplay)}") {
-      speech ("#{value(action.quiz.state.currentQuestion.textToSpeak)}")
+    if (exists(action.state.lastScore)) {
+      template ("#{macro('score-statement', action.state.lastScore)} #{value(action.state.currentQuestion.textToDisplay)}") {
+        speech ("#{macro('score-statement', action.state.lastScore)}... #{value(action.state.currentQuestion.textToSpeak)}")
+      }
+    } else {
+      template ("#{value(action.state.currentQuestion.textToDisplay)}") {
+        speech ("#{value(action.state.currentQuestion.textToSpeak)}")
+      }
     }
   }
   render {
-    if (size(action.quiz.state.currentQuestion.options) > 0) {
-      selection-of (action.quiz.state.currentQuestion.options) {
+    if (size(action.state.currentQuestion.options) > 0) {
+      selection-of (action.state.currentQuestion.options) {
         where-each (option) {
           cell-card {
             slot2 {

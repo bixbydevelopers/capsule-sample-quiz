@@ -1,0 +1,35 @@
+layout-macro-def(quiz-summary) {
+  params {
+    param (quiz) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    cell-card {
+      slot1 {
+        if (exists(quiz.image.url)) {
+          image {
+            shape (Square)
+            url {
+              template ("#{value(quiz.image.url)}")
+            }
+          }
+        }
+      }
+      slot2 {
+        content {
+          primary {
+            template ("#{value(quiz.title)}")
+          }
+          secondary {
+            template ("#{number(size(quiz.questions))} questions")
+          }
+        }
+      }
+    }
+
+  }
+
+}

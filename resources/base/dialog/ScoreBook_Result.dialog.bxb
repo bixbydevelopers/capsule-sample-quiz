@@ -1,0 +1,11 @@
+dialog (Result) {
+  match: ScoreBook(scoreBook) {
+    from-output: DoQuiz (action)
+  }
+
+  if (exists(action.state.lastScore)) {
+    template ("#{macro('score-statement', action.state.lastScore)} #{macro('scoreBook-statement', scoreBook)} #{macro('quiz-completion-statement')} ") {
+      speech ("#{macro('score-statement', action.state.lastScore)} #{macro('scoreBook-statement', scoreBook)} ...... #{macro('quiz-completion-statement')} ")
+    }
+  }
+}

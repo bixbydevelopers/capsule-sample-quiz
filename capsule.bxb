@@ -1,5 +1,5 @@
 capsule {
-  id (example.quiz)
+  id (example.quiz) //replace with your capsule id
   version (1.0.0)
   format(3)
   targets {
@@ -10,7 +10,7 @@ capsule {
       as (core) 
     }
     import (viv.image) {
-      as (image) version (2.11.4)
+      as (image) version (2.12.0)
     }
   }
 }

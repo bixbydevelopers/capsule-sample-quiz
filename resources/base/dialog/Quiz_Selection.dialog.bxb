@@ -1,0 +1,4 @@
+dialog (Selection) {
+  match: Quiz
+  template ("Which quiz do you want to take?")
+}

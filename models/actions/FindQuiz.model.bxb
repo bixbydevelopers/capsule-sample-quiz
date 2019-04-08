@@ -1,0 +1,12 @@
+action (FindQuiz) {
+  description (Finds a quiz)
+  type (Search)
+  collect {
+    input (searchTerm) {
+      type (SearchTerm)
+      min (Optional) max (One)
+      description (Try to match a specific quiz)
+    }
+  }
+  output (Quiz)
+}

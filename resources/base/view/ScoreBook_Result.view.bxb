@@ -1,0 +1,21 @@
+result-view {
+  match {
+    ScoreBook(scoreBook)
+  }
+
+  render {
+    layout-macro ("scoreBook") {
+      param(scoreBook) {
+        expression (scoreBook)
+      }
+    }
+  }
+
+  conversation-drivers {
+    conversation-driver {
+      template ("Take another quiz")
+    }
+  }
+
+
+}

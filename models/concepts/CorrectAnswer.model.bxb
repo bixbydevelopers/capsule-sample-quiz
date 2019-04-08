@@ -1,9 +1,10 @@
 structure (CorrectAnswer) {
+  description (Holds information on the correct answer)
 
   property (acceptedAnswers) {
+    description (All accepted answers)
     type (core.Text)
     min (Required) max (Many)
-    description (all accepted answers)
     visibility (Private)
   }
 

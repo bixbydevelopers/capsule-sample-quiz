@@ -1,4 +1,5 @@
 action (ConstructAnswerFromOption) {
+  description (Convert an option - the option user tapped on - to a (text) answer)
   type (Constructor)
   collect {
     input (option) {

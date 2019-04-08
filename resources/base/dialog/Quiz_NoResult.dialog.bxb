@@ -1,4 +1,6 @@
 dialog (NoResult) {
-  match: Quiz
-  template("Nothing found")
+  match: Quiz {
+    from-output: FindQuiz(find)
+  }
+  template("#{macro('quiz-not-found-statement',find.searchTerm)}")
 }

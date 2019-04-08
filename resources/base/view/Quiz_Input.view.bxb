@@ -1,0 +1,53 @@
+input-view {
+  match {
+    Quiz(quizzes)
+  }
+  
+  
+  render {
+    
+    if ($handsFree) {
+      selection-of (quizzes) {
+        navigation-mode {        
+          read-one {            
+            list-summary {
+              template ("#{macro('QUIZ_LIST_SUMMARY', quizzes)}")
+            }
+            item-selection-question {
+              choose (Random) {
+                template-macro (QUIZ_SELECTION_QUESTION_1)
+                template-macro (QUIZ_SELECTION_QUESTION_2)
+              }
+            }
+            overflow-statement {
+              template-macro (RESULT_OVERFLOW_STATEMENT)
+            }
+            underflow-statement {
+              template-macro (RESULT_UNDERFLOW_STATEMENT)
+            }
+          }
+        }
+
+        where-each-page (page) {
+          summary {
+            template("#{macro('quiz-summary-statement', page[0])}")
+          }
+
+          where-each-item (quiz) {
+            layout-macro (quiz-details) {
+              param (quiz) { expression (quiz) }
+            }
+          }
+        }
+      }
+    } else {
+      selection-of (quizzes) {
+        where-each (quiz) {
+          layout-macro (quiz-summary) {
+            param (quiz) { expression (quiz) }
+          }
+        }
+      }
+    }
+  }
+}
