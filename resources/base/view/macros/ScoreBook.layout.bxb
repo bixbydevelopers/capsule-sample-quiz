@@ -6,20 +6,69 @@ layout-macro-def(scoreBook) {
       max (One)
     }
   }
-
   content {
     section {
       content {
+        title-area {
+          slot1 {
+            text {
+              style(Title_M)
+              value("Question Review:")
+            }
+          }
+        }
         for-each (scoreBook.scores) {
           as (score) {
-            layout-macro ("score") {
-              param(score) {
-                expression (score)
-              }              
+            paragraph {
+              style (Title_S)
+              value ("Question: #{value(score.question.textToDisplay)}")
             }
+            cell-area {
+              slot1 {
+                image {
+                  shape (Circle)
+                  url {
+                    if (score.evaluation == true) {
+                      template ("/icons/correct.png")
+                    } else {
+                      template ("/icons/incorrect.png")
+                    }
+                  }
+                }
+              }
+              slot2 {
+                content {
+                  order (PrimarySecondary)
+                  primary {
+                    if (exists(score.expectedAnswer)) {
+                      if (score.evaluation == false) {
+                        template ("'#{value(score.answer)}'")
+                      } else {
+                        template ("'#{value(score.expectedAnswer)}'")
+                      }
+                    } 
+                  }
+                }
+              }
+            }
+            if (score.evaluation == false) {
+              paragraph {
+                style (Detail_L)
+                value {
+                  template ("Correct answer: '#{value(score.expectedAnswer)}'[ - #{value(score.question.correctAnswer.explanation)}]")
+                }
+              }
+            }
+            paragraph {
+              value {
+                template ("")
+              }
+            }
+            divider
           }
         }
       }
     }
   }
 }
+
