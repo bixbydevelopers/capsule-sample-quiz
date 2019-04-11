@@ -33,12 +33,6 @@ structure (State) {
     visibility (Private)
   }
 
-  property (aborted) {
-    type (core.Boolean)
-    min (Optional) max (One)
-    visibility (Private)
-  }
-
   property (scoreBook) {
     type (ScoreBook)
     min (Optional) max (One)

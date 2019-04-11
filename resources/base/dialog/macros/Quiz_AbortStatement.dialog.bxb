@@ -1,5 +1,0 @@
-template-macro-def (quiz-abort-statement) {
-  content {
-    template("Thanks for playing!")
-  }
-}
