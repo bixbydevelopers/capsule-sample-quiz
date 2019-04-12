@@ -1,5 +1,5 @@
 action (DoQuiz) {
-  description (Keep prompting the user for answers until quiz is completed or aborted.)
+  description (Keep prompting the user for answers until quiz is completed.)
   type (Commit)
   collect {
     input (state) {
@@ -11,7 +11,7 @@ action (DoQuiz) {
         }
       }
       validate {
-        if (!state.aborted && !state.completed) {
+        if (!state.completed) {
           replan {
             intent {
               goal: UpdateQuiz

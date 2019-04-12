@@ -12,10 +12,6 @@ endpoints {
       accepted-inputs (state, answer)
       local-endpoint (UpdateQuiz.js)
     }
-    action-endpoint (AbortQuiz) {
-      accepted-inputs (state)
-      local-endpoint (AbortQuiz.js)
-    }
     action-endpoint (DoQuiz) {
       accepted-inputs (state)
       local-endpoint (DoQuiz.js)
