@@ -1,0 +1,5 @@
+train (t-7yyas7jd62nm1s8i9u42uz0g2) {
+  utterance ("[g:FindQuiz:prompt] (bar foo)[v:SearchTerm]")
+  plan (Y2BmEEytSMwtyEnVKyzNrNILBBIMoihCbpl5KWBhcRTh4NTEouSMkNSiXAYmBkYgZgCSjAwgAOUDAA==)
+  last-modified (1556755187520)
+}

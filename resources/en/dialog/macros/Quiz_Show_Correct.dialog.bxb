@@ -1,0 +1,16 @@
+template-macro-def (quiz-show-correct) {
+  params {
+    param (score) {
+      type (Score)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    if (!score.evaluation) {
+      template ("The correct answer was #{value(score.expectedAnswer)}.")
+    } else {
+      template (" ")
+    }
+  }
+}

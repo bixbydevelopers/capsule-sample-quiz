@@ -4,9 +4,6 @@
   <h1 align="Center">Bixby Quiz Sample Capsule</h1>
 </p>
 
-
-## NOTE: This Capsule is still being developed - You may run into errors or challenges.
-
 ## Overview
 
 Do you have a great idea for a quiz that will entertain and delight Bixby users? Do you want to create a fun quiz to help you learn something new? A quiz to stump your friends? The quiz sample capsule is the perfect place to start building a Bixby quiz capsule!

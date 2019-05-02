@@ -49,7 +49,7 @@ module.exports = [
   
   // Start of president quiz
   {
-    title: "President names",
+    title: "President Quiz",
     tags: ["president", "presidents"], //used to find this quiz
     image: {
       url: '/images/President.jpg'

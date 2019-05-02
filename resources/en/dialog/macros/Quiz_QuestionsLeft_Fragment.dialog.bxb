@@ -8,11 +8,11 @@ template-macro-def (quiz-questions-left-fragment) {
   }
   content {
     if (questionsLeft == 0) {
-      template ("No more questions left")
+      template ("No more questions left.")
     } else-if (questionsLeft == 1) {
-        template ("One question left")
+        template ("One question left.")
     } else {
-        template ("#{number(questionsLeft)} questions left")      
+        template ("#{number(questionsLeft)} questions left.")      
     }
   }
 }
