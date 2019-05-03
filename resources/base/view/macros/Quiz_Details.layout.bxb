@@ -14,7 +14,7 @@ layout-macro-def(quiz-details) {
         }
         slot2 {
           single-line {
-            text ("#{number(size(quiz.questions))} questions")
+            text ("#{number(size(quiz.questions))} #{macro('QUESTIONS')}")
           }
         }
       }

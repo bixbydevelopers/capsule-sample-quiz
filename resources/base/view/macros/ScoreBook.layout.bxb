@@ -13,7 +13,7 @@ layout-macro-def(scoreBook) {
           slot1 {
             text {
               style(Title_M)
-              value("Question Review:")
+              value("#{macro('QUESTION_REVIEW')}:")
             }
           }
         }
@@ -21,7 +21,7 @@ layout-macro-def(scoreBook) {
           as (score) {
             paragraph {
               style (Title_S)
-              value ("Question: #{value(score.question.textToDisplay)}")
+              value ("#{macro('QUESTION')}: #{value(score.question.textToDisplay)}")
             }
             cell-area {
               slot1 {
@@ -55,7 +55,7 @@ layout-macro-def(scoreBook) {
               paragraph {
                 style (Detail_L)
                 value {
-                  template ("Correct answer: '#{value(score.expectedAnswer)}'[ - #{value(score.question.correctAnswer.explanation)}]")
+                  template ("#{macro('CORRECT_ANSWER')}: '#{value(score.expectedAnswer)}'[ - #{value(score.question.correctAnswer.explanation)}]")
                 }
               }
             }

@@ -4,9 +4,6 @@
   <h1 align="Center">Bixby Quiz Sample Capsule</h1>
 </p>
 
-
-## NOTE: This Capsule is still being developed - You may run into errors or challenges.
-
 ## Overview
 
 Do you have a great idea for a quiz that will entertain and delight Bixby users? Do you want to create a fun quiz to help you learn something new? A quiz to stump your friends? The quiz sample capsule is the perfect place to start building a Bixby quiz capsule!
@@ -38,8 +35,9 @@ Start a funny quiz (Bixby starts a quiz that is funny)
 # How to customize
 * Change the capsule id to reflect your organization and your content. The capsule id is defined in `capsule.bxb` file. 
 * Create your own quiz questions and answers by editing the `code/data/quizzes.js` file. You may also use the spreadsheet located in `contentUtility/createQuizContent` The `quizzes.js` file has comments that explain each of the fields and how they customize a quiz
-* You can customize the Quiz NoResult dialog (`resources/base/dialog/Quiz_NoResult.dialog.bxb`)
-* You can customize the Quiz Result dialog by directly modifying the `resources/base/dialog/Quiz_Result.dialog.bxb` or by modifying the dialog macros under `/dialog/macros/`.
+* You can customize the Quiz NoResult dialog (`resources/en/dialog/Quiz_NoResult.dialog.bxb`)
+* You can customize the Quiz Result dialog by directly modifying the `resources/en/dialog/Quiz_Result.dialog.bxb` file or by modifying the dialog macros in `resources/en/dialog/macros/`.
+* You can customize the Quiz Question/Answer prompts by directly modifying the `resources/base/view/Answer_Input_view.bxb` file or by modifying the dialog macros in `resources/en/dialog/macros/`.
 * The training in this sample capsule is basic. You will likely need to add additional training for your quiz
 * Have fun!
 

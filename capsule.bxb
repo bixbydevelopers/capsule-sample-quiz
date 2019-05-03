@@ -14,6 +14,8 @@ capsule {
     }
   }
   runtime-flags {
+    concepts-inherit-super-type-features
+    modern-prompt-rejection
     support-halt-effect-in-computed-inputs
   }
 }

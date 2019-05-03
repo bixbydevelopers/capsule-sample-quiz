@@ -1,0 +1,21 @@
+template-macro-def (ANOTHER_QUIZ) {
+  content: template ("Take another quiz")
+}
+
+template-macro-def (QUESTIONS) {
+  content: template ("questions")
+}
+
+template-macro-def (QUESTION) {
+  content: template ("question")
+}
+
+template-macro-def (QUESTION_REVIEW) {
+  content: template ("Question Review")
+}
+
+template-macro-def (CORRECT_ANSWER) {
+  content: template ("Correct answer")
+}
+
+

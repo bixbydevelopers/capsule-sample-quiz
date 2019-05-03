@@ -24,7 +24,7 @@ layout-macro-def(quiz-summary) {
             template ("#{value(quiz.title)}")
           }
           secondary {
-            template ("#{number(size(quiz.questions))} questions")
+            template ("#{number(size(quiz.questions))} #{macro('QUESTIONS')}")
           }
         }
       }
