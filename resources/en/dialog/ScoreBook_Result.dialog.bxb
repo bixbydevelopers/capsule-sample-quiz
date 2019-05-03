@@ -5,7 +5,7 @@ dialog (Result) {
 
   if (exists(action.state.lastScore)) {
     template ("#{macro('score-statement', action.state.lastScore)} #{macro('quiz-show-correct', action.state.lastScore)} #{macro('scoreBook-statement', scoreBook)} #{macro('quiz-completion-statement')} ") {
-      speech ("#{macro('score-statement', action.state.lastScore)} #{macro('quiz-show-correct', action.state.lastScore)} #{macro('scoreBook-statement', scoreBook)} ...... #{macro('quiz-completion-statement')} ")
+      speech ("#{macro('score-statement', action.state.lastScore)}... #{macro('quiz-show-correct', action.state.lastScore)} #{macro('scoreBook-statement', scoreBook)} ...... #{macro('quiz-completion-statement')} ")
     }
   }
 }
