@@ -5,18 +5,22 @@ exports.buildQuestionsFromJson = buildQuestionsFromJson
 
 function findItems(items, searchTerm) {
    var matches = []
-   //a lot can be improved here...
    for (var i=0; i<items.length; i++) {
-      if (items[i].tags) {
-        for (var j=0; j<items[i].tags.length; j++) {
-          if (searchTerm.toLowerCase() == items[i].tags[j].toLowerCase()) {
-             matches.push(items[i])
-             break
-          }
-        }
+      if (matchTag(items[i].tags, searchTerm)) {
+         matches.push(items[i])
       }
    }
    return matches
+}
+
+//returns true if there is an element in a list of tags that matches a specific tag
+function matchTag(tags, tag) {
+   for (var i=0; i<tags.length; i++) {
+     if (tag.toLowerCase() == tags[i].toLowerCase()) {
+        return true
+     }
+   }
+   return false
 }
 
 function buildQuestionsFromJson(quizJson) {

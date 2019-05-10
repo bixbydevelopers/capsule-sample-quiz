@@ -27,7 +27,7 @@ module.exports = [
     title: "Funny Quiz",
     tags: ["funny", "animal"], //used to find this quiz
     image: {
-      url: '/images/Dogs.jpg'
+      url: '/images/Animals.jpeg'
     }, //optional
     questions: [{
         question: "What do cats like to eat on a hot day?",
@@ -52,7 +52,7 @@ module.exports = [
     title: "President Quiz",
     tags: ["president", "presidents"], //used to find this quiz
     image: {
-      url: '/images/President.jpg'
+      url: '/images/Presidents.jpeg'
     }, //optional
     questions: [{
         question: "Which president said 'Efforts and courage are not enough without purpose and direction.'?",
