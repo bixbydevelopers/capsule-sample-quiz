@@ -63,7 +63,7 @@ module.exports = [
         question: "Which president said 'Men are not prisoners of fate, but only prisoners of their own minds'?",
         options: ["Hoover", "Roosevelt", "Truman"],
         //you can provide a list of accepted answers instead of giving an index to the options
-        answer: ["Roosevelt", "FDR", , "Franklin Roosevelt", "Franklin D Roosevelt"],
+        answer: ["Roosevelt", "FDR", "Franklin Roosevelt", "Franklin D Roosevelt"],
       },
       {
         question: "Which president said 'Speak softly, and carry a big stick'?",
