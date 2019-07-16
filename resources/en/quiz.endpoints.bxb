@@ -1,0 +1,20 @@
+endpoints {
+  action-endpoints {
+    action-endpoint (FindQuiz) {
+      accepted-inputs (searchTerm)
+      local-endpoint (FindQuiz.js)
+    }
+    action-endpoint (StartQuiz) {
+      accepted-inputs (quiz)
+      local-endpoint (StartQuiz.js)
+    }
+    action-endpoint (UpdateQuiz) {
+      accepted-inputs (quiz, answer)
+      local-endpoint (UpdateQuiz.js)
+    }
+    action-endpoint (ExtractAnswerFromOption) {
+      accepted-inputs (option)
+      local-endpoint (ExtractAnswerFromOption.js)
+    }
+  }
+}

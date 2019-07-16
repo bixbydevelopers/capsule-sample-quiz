@@ -1,5 +1,10 @@
-train (t-7yyas7jd62nm1s8i9u42uz0g2) {
-  utterance ("[g:FindQuiz:prompt] (foobar foobar)[v:SearchTerm]")
-  plan (Y2BmEEytSMwtyEnVKyzNrNILBBIMoihCbpl5KWBhcRTh4NTEouSMkNSiXAYmBkYgZgCSjAwgAOUDAA==)
-  last-modified (1557187022243)
+train (t-74ylfgy64fg78k7y5z4ck27v6) {
+  utterance ("[g:Quiz:prompt] (foo bar)[v:SearchTerm]")
+  plan (Y2BmkC/ISaxML8ovzUvRK87MLcjJTMtMTYkvLM2s0gsEEgzKeBS4ZealgBWp4lEUnJpYlJwRklqUy8DEwAjEDECSkQEEmCAYAA==)
+  last-modified (1562618796525)
+}
+train (t-7vj6xlz29ebf97j8a04ej4uxk) {
+  utterance ([g:StartQuiz] quiz)
+  plan (Y2BmkC/ISaxML8ovzUvRK87MLcjJTMtMTYkvLM2s0gsEEgwqeBQElyQWlYBVETSGiYERiBmAJCMDA4wGAA==)
+  last-modified (1562200347235)
 }

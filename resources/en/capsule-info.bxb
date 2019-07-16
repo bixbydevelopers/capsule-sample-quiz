@@ -1,0 +1,11 @@
+capsule-info {
+  display-name (Example Quiz)
+  developer-name (Viv Labs, Inc.)
+  icon-asset (icons/correct.png)
+  description ("An example capsule that demonstrates how to build a quiz")
+  website-url (https://bixbydevelopers.com/)
+  search-keywords{
+    keyword (quiz)
+  }
+  dispatch-name (Example Quiz)
+}

@@ -1,6 +1,6 @@
 action (StartQuiz) {
-  description (Starts a quiz and initializes the quiz state)
-  type (BeginTransaction)
+  description (Keep prompting the user for answers until quiz is completed.)
+  type (Calculation)
   collect {
     input (quiz) {
       type (Quiz)
@@ -10,8 +10,17 @@ action (StartQuiz) {
           goal: FindQuiz
         }
       }
+      validate {
+        if (!quiz.completed) {
+          replan {
+            intent {
+              goal: UpdateQuiz
+              value { $expr(quiz) }
+            }
+          }
+        }
+      }
     }
   }
-  
-  output (State)
+  output (Quiz)
 }

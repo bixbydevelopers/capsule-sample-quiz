@@ -1,5 +1,5 @@
-train (t-8x6y60i1zxhs05lsxqh5ta1uf) {
-  utterance ("[g:Answer:prompt] (foo bar)[v:Answer]")
-  plan (Y2BiEE6tSMwtyEnVKyzNrNJzzCsuTy3CLsgIhAwMPEDMBMRANgA=)
-  last-modified (1557186711676)
+train (t-815a9m07q9nskqvmnd80p8x4p) {
+  utterance ("[g:StartQuiz] give me a (funny)[v:SearchTerm] quiz")
+  plan (Y2BlkC/ISaxML8ovzUvRK87MLcjJTMtMTYkvLM2s0gsEEgwqeBQElyQWlYBVETRGGY8Ct8y8FLAiVXx2pSYWJWeEpBblMrAwMDIwMTADaQYoixHMAgEmIA0UBwA=)
+  last-modified (1562695290359)
 }

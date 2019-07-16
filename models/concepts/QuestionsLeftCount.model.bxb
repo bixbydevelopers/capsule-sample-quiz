@@ -1,3 +1,0 @@
-integer  (QuestionsLeftCount) {
-  description(How many questions left in the quiz)
-}

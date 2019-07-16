@@ -1,0 +1,56 @@
+input-view {
+  match {
+    Quiz(quizzes)
+  }
+
+  message{
+    choose (Random){
+      template (Which quiz would you like to take?)
+      template ("Which of these #{size(quizzes)} #{concept(quizzes)} would you like to take?")
+    }
+  }
+  render {
+
+    if ($handsFree) {
+      selection-of (quizzes) {
+        navigation-mode { 
+          read-one {
+            list-summary {
+              template ("I found #{size(quizzes)} #{concept(quizzes)}")
+            }
+            page-content {
+              item-selection-question {
+                choose (Random) {
+                  template ("Want to pick this one?")
+                  template ("Is this what you're looking for?")
+                }
+              }
+              overflow-statement {
+                template ("That's all I have.")
+              }
+              underflow-statement {
+                template ("This is the first option.")
+              }
+            }
+          }
+        }
+        where-each (quiz) {
+          spoken-summary {
+            template("#{value(quiz.title)} has #{size(quiz.questions)} questions.")
+          }
+          layout-macro (quiz-details) {
+            param (quiz) { expression (quiz) }
+          }
+        }
+      }
+    } else {
+      selection-of (quizzes) {
+        where-each (quiz) {
+          layout-macro (quiz-details) {
+            param (quiz) { expression (quiz) }
+          }
+        }
+      }
+    }
+  }
+}

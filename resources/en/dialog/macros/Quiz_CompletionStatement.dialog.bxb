@@ -1,5 +1,0 @@
-template-macro-def (quiz-completion-statement) {
-  content {
-    template("Thanks for playing!")
-  }
-}

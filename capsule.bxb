@@ -1,7 +1,7 @@
 capsule {
-  id (example.quiz) //replace with your capsule id
-  version (1.0.0)
-  format(3)
+  id (playground.simplified_quiz)
+  version (0.1.0)
+  format (3)
   targets {
     target (bixby-mobile-en-US)
   }
@@ -10,7 +10,7 @@ capsule {
       as (core) 
     }
     import (viv.image) {
-      as (image) version (2.12.0)
+      as (image) version (2.12.5)
     }
   }
   runtime-flags {

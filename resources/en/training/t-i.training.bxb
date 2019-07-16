@@ -1,0 +1,5 @@
+train (t-izysb78007qgj4ijcyn57p94b) {
+  utterance ("[g:Quiz:prompt] give me the (funny)[v:SearchTerm] quiz")
+  plan (Y2BmkC/ISaxML8ovzUvRK87MLcjJTMtMTYkvLM2s0gsEEgzKeBS4ZealgBWp4lEUnJpYlJwRklqUy8DEwAjEDECSkQEEmCAYAA==)
+  last-modified (1562699772266)
+}

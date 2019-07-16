@@ -1,0 +1,5 @@
+train (t-rhqrvtq43qwp4v4gmvqt6avk6) {
+  utterance ("[g:Answer:prompt] (foo bar foo bar)[v:Answer]")
+  plan (Y2BiUCzISaxML8ovzUvRK87MLcjJTMtMTYkvLM2s0nPMKy5PLSJGCSMQMjDwADETEAPZAA==)
+  last-modified (1562185770436)
+}

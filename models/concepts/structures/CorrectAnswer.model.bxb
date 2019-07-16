@@ -1,0 +1,21 @@
+structure (CorrectAnswer) {
+  description (A structure to hold information on the correct answer)
+  property (text) {
+    description (The correct answer to display to the user.)
+    type (core.Text)
+    min (Required) max (One)
+    visibility (Private)
+  }
+  property (acceptedAnswers) {
+    description (additional acceptable answers. For example, Roosevelt, FDR, and Franklin Delano Roosevelt are all correct.)
+    type (core.Text)
+    min (Optional) max (Many)
+    visibility (Private)
+  }
+  property (explanation) {
+    description (a description of why this is the correct answer)
+    type (core.Text)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+}
