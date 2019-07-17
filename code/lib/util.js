@@ -63,13 +63,14 @@ function buildQuestionFromJson(questionJson) {
   return question
 }
 
+// 
 function buildQuestionToSpeak(question) {
   var options = question.options
   optionsString = ''
   for (var i=0; i< options.length; i++) {
     optionsString += options[i].alias + '... ' + options[i].text + (i+1 < options.length ? ', ... ' : '')
   }
-  return question.text + ' ' + optionsString;
+  return optionsString;
 }
 
 function buildAcceptedAnswers(answer, options) {

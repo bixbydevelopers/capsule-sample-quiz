@@ -1,18 +1,24 @@
+// See the UpdatQuiz.dialog for localized strings
+
 input-view {
   match: Answer(this) {
     to-input: UpdateQuiz(action)
   }
-  
+    
   message {
-    template ("#{title(action.quiz.textToDisplay)}"){
-      speech ("#{title(action.quiz.textToSpeak)}")
+    if (action.quiz.index > 0) {  // if not on first question
+      if (action.quiz.questions[action.quiz.index-1].correct) { // if last question correct
+        template ("#{macro('CORRECT_QUESTION_ANSWER', action.quiz)}") {
+        }
+      } else {
+        template ("#{macro('INCORRECT_QUESTION_ANSWER', action.quiz)}") {
+        }
+      }
+    } else { // first question
+      template ("#{macro('FIRST_QUESTION', action.quiz)}")
     }
   }
-  // message("[#{value(action.quiz.textToDisplay)}]")
-  // Mix and match the Macros to get your desired dialog. Macros include:
-  // score-statement: Says correct or incorrect
-  // quiz-show-correct: Tells the correct answer if the user answered incorrectly
-  // quiz-questions-left-fragment: How many questions are left
+
   render {
     if (size(action.quiz.questions[action.quiz.index].options) > 0) {
       selection-of (action.quiz.questions[action.quiz.index].options) {
