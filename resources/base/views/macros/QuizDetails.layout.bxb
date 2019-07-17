@@ -1,4 +1,4 @@
-layout-macro-def(quiz-details) {
+layout-macro-def(QuizDetails) {
   params {
     param (quiz) {
       type (Quiz)
@@ -24,7 +24,7 @@ layout-macro-def(quiz-details) {
             template ("#{value(quiz.title)}")
           }
           secondary {
-            template ("#{number(size(quiz.questions))} questions")
+            template ("#{number(size(quiz.questions))} #{macro('QUESTIONS')}")
           }
         }
       }

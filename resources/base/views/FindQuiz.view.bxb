@@ -3,12 +3,10 @@ input-view {
     Quiz(quizzes)
   }
 
-  message{
-    choose (Random){
-      template (Which quiz would you like to take?)
-      template ("Which of these #{size(quizzes)} #{concept(quizzes)} would you like to take?")
-    }
+  message {
+    template ("#{macro('QUIZ_SELECTION_QUESTION', quizzes)}")
   }
+  
   render {
 
     if ($handsFree) {
@@ -16,29 +14,26 @@ input-view {
         navigation-mode { 
           read-one {
             list-summary {
-              template ("I found #{size(quizzes)} #{concept(quizzes)}")
+              template ("#{macro('QUIZ_LIST_SUMMARY', quizzes)}")
             }
             page-content {
               item-selection-question {
-                choose (Random) {
-                  template ("Want to pick this one?")
-                  template ("Is this what you're looking for?")
-                }
+                template ("#{macro('ITEM-SELECTION-QUESTION')}")
               }
               overflow-statement {
-                template ("That's all I have.")
+                template ("#{macro('OVERFLOW_STATEMENT')}")
               }
               underflow-statement {
-                template ("This is the first option.")
+                template ("#{macro('UNDERFLOW_STATEMENT')}")
               }
             }
           }
         }
         where-each (quiz) {
           spoken-summary {
-            template("#{value(quiz.title)} has #{size(quiz.questions)} questions.")
+            template("#{macro('QUIZ_LIST_SUMMARY', quizzes)}")
           }
-          layout-macro (quiz-details) {
+          layout-macro (QuizDetails) {
             param (quiz) { expression (quiz) }
           }
         }
@@ -46,7 +41,7 @@ input-view {
     } else {
       selection-of (quizzes) {
         where-each (quiz) {
-          layout-macro (quiz-details) {
+          layout-macro (QuizDetails) {
             param (quiz) { expression (quiz) }
           }
         }
