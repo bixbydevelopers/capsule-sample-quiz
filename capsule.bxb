@@ -1,5 +1,5 @@
 capsule {
-  id (playground.simplified_quiz)
+  id (example.quiz)
   version (0.1.0)
   format (3)
   targets {

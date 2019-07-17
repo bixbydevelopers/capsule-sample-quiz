@@ -52,4 +52,7 @@ structure (Quiz) {
     min (Required) max (One)
     visibility (Private)
   }
+  features{
+    transient
+  }
 }
