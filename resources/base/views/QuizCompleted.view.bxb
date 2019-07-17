@@ -1,0 +1,30 @@
+// See the UpdateQuiz.dialog for localized strings
+
+result-view{
+  match: Quiz(quiz){
+    from-output:StartQuiz(action)
+  }
+  
+  message {
+      if (action.quiz.questions[action.quiz.index].correct) {
+        template ("#{macro('COMPLETED_LAST_CORRECT', action.quiz)}") {
+        }
+      } else {
+        template ("#{macro('COMPLETED_LAST_INCORRECT', action.quiz)}") {
+        }
+      }
+  }
+    
+  render{
+    layout-macro (QuizCompleted){
+      param (quiz){
+        expression (quiz)
+      }
+    }
+  }
+   conversation-drivers {
+    conversation-driver {
+      template("#{macro('ANOTHER_QUIZ')}")
+    }
+  }
+}

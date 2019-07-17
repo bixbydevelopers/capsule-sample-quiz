@@ -1,4 +1,6 @@
-layout-macro-def (quiz-completed){
+// See the LayoutMacros.dialog for localized strings
+
+layout-macro-def (QuizCompleted){
   params {
     param (quiz) {
       type (Quiz)
@@ -13,7 +15,7 @@ layout-macro-def (quiz-completed){
           slot1 {
             text {
               style(Title_M)
-              value("Question Review:")
+              value("#{macro('QUESTION_REVIEW')}:")
             }
           }
         }
@@ -21,7 +23,7 @@ layout-macro-def (quiz-completed){
           as (question) {
             paragraph {
               style (Title_S)
-              value ("Question: #{value(question.text)}")
+              value ("#{macro('QUESTION')}: #{value(question.text)}")
             }
             cell-area {
               slot1 {
@@ -51,7 +53,7 @@ layout-macro-def (quiz-completed){
               paragraph {
                 style (Detail_L)
                 value {
-                  template ("Correct answer: '#{value(question.correctAnswer[0].text)}'[ - #{value(question.correctAnswer.explanation)}]")
+                  template ("#{macro('CORRECT_ANSWER')}: '#{value(question.correctAnswer[0].text)}'[ - #{value(question.correctAnswer.explanation)}]")
                 }
               }
             }
