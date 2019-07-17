@@ -1,3 +1,5 @@
+// See the FindQuiz.dialog file for localized strings for UI
+
 input-view {
   match {
     Quiz(quizzes)
@@ -8,13 +10,12 @@ input-view {
   }
   
   render {
-
     if ($handsFree) {
       selection-of (quizzes) {
         navigation-mode { 
           read-one {
             list-summary {
-              template ("#{macro('QUIZ_LIST_SUMMARY', quizzes)}")
+              template ("#{macro('WELCOME_TO_QUIZ')}")
             }
             page-content {
               item-selection-question {
@@ -31,7 +32,7 @@ input-view {
         }
         where-each (quiz) {
           spoken-summary {
-            template("#{macro('QUIZ_LIST_SUMMARY', quizzes)}")
+            template("#{macro('QUIZ_LIST_SUMMARY', quiz)}")
           }
           layout-macro (QuizDetails) {
             param (quiz) { expression (quiz) }

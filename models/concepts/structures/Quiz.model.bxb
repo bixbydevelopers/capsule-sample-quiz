@@ -23,6 +23,12 @@ structure (Quiz) {
     min (Optional) max (One)
     visibility (Private)
   }
+  property (textToSpeak) {
+    description(Question formatted for speech channel)
+    type (core.Text)
+    min (Optional) max (One)
+    visibility (Private)
+  }
   property (index) {
     description (Index of the current question)
     type (core.Integer)

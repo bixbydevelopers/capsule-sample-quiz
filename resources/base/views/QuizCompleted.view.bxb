@@ -1,3 +1,5 @@
+// See the UpdateQuiz.dialog for localized strings
+
 result-view{
   match: Quiz(quiz){
     from-output:StartQuiz(action)

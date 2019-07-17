@@ -1,5 +1,10 @@
-// Quiz selection localized dialogs
+// Localized strings used by FindQuiz view
 
+template-macro-def (WELCOME_TO_QUIZ) {
+  content {
+    template ("Welcome to Bixby Quiz. ")
+  }
+}
 
 template-macro-def (QUIZ_SELECTION_QUESTION) {
    params {
@@ -11,8 +16,8 @@ template-macro-def (QUIZ_SELECTION_QUESTION) {
   }
   content {
     choose (Random) {
-      template ("Which quiz would you like to take?")
-      template ("Which of these #{size(quizzes)} quizzes would you like to take?")
+      template ("Welcome to Bixby Quiz. Which quiz would you like to take?")
+      template ("Welcome to Bixby Quiz. Which of these #{size(quizzes)} quizzes would you like to take?")
     }
   }
 }

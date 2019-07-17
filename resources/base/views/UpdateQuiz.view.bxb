@@ -1,3 +1,5 @@
+// See the UpdatQuiz.dialog for localized strings
+
 input-view {
   match: Answer(this) {
     to-input: UpdateQuiz(action)

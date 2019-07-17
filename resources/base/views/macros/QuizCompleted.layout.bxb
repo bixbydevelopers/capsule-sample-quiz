@@ -1,3 +1,5 @@
+// See the LayoutMacros.dialog for localized strings
+
 layout-macro-def (QuizCompleted){
   params {
     param (quiz) {
