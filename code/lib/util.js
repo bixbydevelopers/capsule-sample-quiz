@@ -112,7 +112,6 @@ function buildQuizzes(searchTerm){
     quiz.score = 0;
     quiz.index = 0;
     var questions = buildQuestionsFromJson(quiz);
-    quiz.textToDisplay = questions[0].text;
     quiz.textToSpeak = buildQuestionToSpeak(questions[0]);
     //cannot start a quiz without any questions
     if (!questions || !questions.length) {

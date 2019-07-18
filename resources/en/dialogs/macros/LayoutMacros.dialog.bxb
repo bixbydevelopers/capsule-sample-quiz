@@ -13,7 +13,7 @@ template-macro-def (QUESTION) {
 }
 
 template-macro-def (QUESTION_REVIEW) {
-  content: template ("Question Review:")
+  content: template ("Question Review")
 }
 
 template-macro-def (CORRECT_ANSWER) {
