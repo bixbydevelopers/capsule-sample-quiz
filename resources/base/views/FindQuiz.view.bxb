@@ -8,18 +8,22 @@ input-view {
   message {
     template ("#{macro('QUIZ_SELECTION_QUESTION', quizzes)}")
   }
-  
+
   render {
-    if ($handsFree) {
+    if ($handsFree) {  // If hands free mode, read out the quiz options and provide navigation guidance to the user
       selection-of (quizzes) {
-        navigation-mode { 
-          read-one {
+        navigation-mode {
+          read-many {
             list-summary {
-              template ("#{macro('WELCOME_TO_QUIZ')}")
+              template ("#{macro('WELCOME_TO_QUIZ', quizzes)}")
             }
-            page-content {
+            page-content (page) {
               item-selection-question {
-                template ("#{macro('ITEM-SELECTION-QUESTION')}")
+              if (isLastNavPage(page)) {
+                  template  ("#{macro('ITEM-SELECTION-QUESTION', quizzes)}")
+                } else {
+                 template ("#{macro('ITEM-SELECTION-QUESTION', quizzes)} #{macro('RESULT_NEXT_QUESTION')}") 
+                }
               }
               overflow-statement {
                 template ("#{macro('OVERFLOW_STATEMENT')}")
@@ -27,7 +31,19 @@ input-view {
               underflow-statement {
                 template ("#{macro('UNDERFLOW_STATEMENT')}")
               }
+              page-marker {
+                if (isLastNavPage(page) && !isFirstNavPage(page)){
+                  if (size(page) == 1) {
+                    template ("#{macro('LAST_QUIZ')}") 
+                  } else {
+                    template ("#{macro('LAST_QUIZZES', size(page))}")
+                  }
+                } else-if (!isFirstNavPage(page)) {
+                  template ("#{macro('NEXT_QUIZZES', size(page))}")
+                }
+              }
             }
+            page-size (3)
           }
         }
         where-each (quiz) {
@@ -39,7 +55,8 @@ input-view {
           }
         }
       }
-    } else {
+  } 
+    else {
       selection-of (quizzes) {
         where-each (quiz) {
           layout-macro (QuizDetails) {

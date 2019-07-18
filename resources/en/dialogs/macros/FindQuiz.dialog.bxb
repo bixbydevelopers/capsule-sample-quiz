@@ -1,8 +1,15 @@
 // Localized strings used by FindQuiz view
 
 template-macro-def (WELCOME_TO_QUIZ) {
+   params {
+    param (quizzes) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
   content {
-    template ("Welcome to Bixby Quiz. ")
+    template ("Welcome to Bixby Quiz. There are #{size(quizzes)} quizzes available")
   }
 }
 
@@ -23,31 +30,71 @@ template-macro-def (QUIZ_SELECTION_QUESTION) {
 }
 
 template-macro-def (ITEM-SELECTION-QUESTION) {
+  params {
+    param (quizzes) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
   content {
     choose (Random) {
-      template ("Want to pick this one?")
-      template ("Is this what you're looking for?")
+      template ("Which quiz would you like to take?")
+      template ("Which quiz sounds good to you?")
     }
   }
 }
 
 template-macro-def (OVERFLOW_STATEMENT) {
   content {
-    template ("That's all I have.")
+    template ("That's all the quizzes I have.")
   }
 }
 
 template-macro-def (UNDERFLOW_STATEMENT) {
   content {
-    template ("This is the first option.")
+    template ("This is the first list of quizzes.")
   }
 }
 
 template-macro-def (RESULT_NEXT_QUESTION) {
   content {
-    template ("Would you like to hear the next one?")
+    template ("Or say next for more quizzes.")
   }
 }
+
+template-macro-def (NEXT_QUIZZES) {
+  params { 
+  param (pageSize) {
+      type (core.Integer)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    template ("The next #{pageSize} quizzes are")
+  }
+}
+
+template-macro-def (LAST_QUIZZES) {
+  params { 
+  param (pageSize) {
+      type (core.Integer)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    template ("The last #{pageSize} quizzes are")
+  }
+}
+
+template-macro-def (LAST_QUIZ) {
+  content {
+    template ("The last quiz is")
+  }
+}
+
 
 template-macro-def (QUIZ_LIST_SUMMARY) {
   params {
