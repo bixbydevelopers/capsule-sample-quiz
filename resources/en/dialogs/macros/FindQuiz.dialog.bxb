@@ -1,0 +1,109 @@
+// Localized strings used by FindQuiz view
+
+template-macro-def (WELCOME_TO_QUIZ) {
+   params {
+    param (quizzes) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    template ("Welcome to Bixby Quiz. There are #{size(quizzes)} quizzes available")
+  }
+}
+
+template-macro-def (QUIZ_SELECTION_QUESTION) {
+   params {
+    param (quizzes) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    choose (Random) {
+      template ("Welcome to Bixby Quiz. Which quiz would you like to take?")
+      template ("Welcome to Bixby Quiz. Which of these #{size(quizzes)} quizzes would you like to take?")
+    }
+  }
+}
+
+template-macro-def (ITEM-SELECTION-QUESTION) {
+  params {
+    param (quizzes) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    choose (Random) {
+      template ("Which quiz would you like to take?")
+      template ("Which quiz sounds good to you?")
+    }
+  }
+}
+
+template-macro-def (OVERFLOW_STATEMENT) {
+  content {
+    template ("That's all the quizzes I have.")
+  }
+}
+
+template-macro-def (UNDERFLOW_STATEMENT) {
+  content {
+    template ("This is the first list of quizzes.")
+  }
+}
+
+template-macro-def (RESULT_NEXT_QUESTION) {
+  content {
+    template ("Or say next for more quizzes.")
+  }
+}
+
+template-macro-def (NEXT_QUIZZES) {
+  params { 
+  param (pageSize) {
+      type (core.Integer)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    template ("The next #{pageSize} quizzes are")
+  }
+}
+
+template-macro-def (LAST_QUIZZES) {
+  params { 
+  param (pageSize) {
+      type (core.Integer)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    template ("The last #{pageSize} quizzes are")
+  }
+}
+
+template-macro-def (LAST_QUIZ) {
+  content {
+    template ("The last quiz is")
+  }
+}
+
+
+template-macro-def (QUIZ_LIST_SUMMARY) {
+  params {
+    param (quizzes) {
+      type (Quiz)
+      min (Required) max (Many)
+    }
+  }
+  content {
+    template("#{value(quizzes.title)} has #{size(quizzes.questions)} questions.")
+  }
+}

@@ -1,0 +1,33 @@
+structure (Question) {
+  description (A question in a quiz)
+  property (text) {
+    description(Question to be displayed)
+    type (core.Text)
+    min (Required) max (One)
+    visibility (Private)
+  }
+  property (options) {
+    description(Options provided to the user)
+    type (Option)
+    min (Optional) max (Many)
+    visibility (Private)
+  }
+  property (correctAnswer) {
+    description(Information on the correct answer)
+    type (CorrectAnswer)
+    min (Required) max (One)
+    visibility (Private)
+  }
+  property (correct) {
+    description (Whether the user got this right or not)
+    type (core.Boolean)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+  property (answer) {
+    description (What answer the user provided)
+    type (Answer)
+    min (Optional) max (One)
+    visibility (Private)
+  }
+}

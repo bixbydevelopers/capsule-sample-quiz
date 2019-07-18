@@ -1,9 +1,0 @@
-dialog (Result) {
-  match: Quiz(quiz)
-  //first dialog - asking user if the user is ready for the first question
-  if (size(quiz)==1) {
-    template ("#{macro('quiz-summary-statement', quiz)}")
-  } else {
-    template ("I found #{size(quiz)} #{concept(quiz)}")
-  }
-}

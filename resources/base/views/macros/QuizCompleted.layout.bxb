@@ -1,0 +1,71 @@
+// See the LayoutMacros.dialog for localized strings
+
+layout-macro-def (QuizCompleted){
+  params {
+    param (quiz) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content{
+    section{
+      content{
+        title-area {
+          slot1 {
+            text {
+              style(Title_M)
+              value("#{macro('QUESTION_REVIEW')}:")
+            }
+          }
+        }
+        for-each (quiz.questions){
+          as (question) {
+            paragraph {
+              style (Title_S)
+              value ("#{macro('QUESTION')}: #{value(question.text)}")
+            }
+            cell-area {
+              slot1 {
+                image {
+                  shape (Circle)
+                  url {
+                    if (question.correct == true) {
+                      template ("/icons/correct.png")
+                    } else {
+                      template ("/icons/incorrect.png")
+                    }
+                  }
+                }
+              }
+              slot2 {
+                content {
+                  order (PrimarySecondary)
+                  primary {
+                    if (exists(question.answer)) {
+                      template ("'#{title(question.answer)}'")
+                    }
+                  }
+                }
+              }
+            }
+            if (question.correct == false) {
+              paragraph {
+                style (Detail_L)
+                value {
+                  template ("#{macro('CORRECT_ANSWER')}: '#{value(question.correctAnswer[0].text)}'[ - #{value(question.correctAnswer.explanation)}]")
+                }
+              }
+            }
+            paragraph {
+              value {
+                template ("")
+              }
+            }
+            divider
+          }
+        }
+      }
+    }
+  }
+}

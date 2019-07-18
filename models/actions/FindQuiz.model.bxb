@@ -1,5 +1,5 @@
 action (FindQuiz) {
-  description (Finds a quiz)
+  description (Finds the quiz the user specified. If no quiz specified, gives users all the quizzes so they can choose one.)
   type (Search)
   collect {
     input (searchTerm) {

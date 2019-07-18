@@ -1,0 +1,24 @@
+// Misc localized dialogs used by layout macros
+
+template-macro-def (ANOTHER_QUIZ) {
+  content: template ("Take another quiz")
+}
+
+template-macro-def (QUESTIONS) {
+  content: template ("Questions")
+}
+
+template-macro-def (QUESTION) {
+  content: template ("Question")
+}
+
+template-macro-def (QUESTION_REVIEW) {
+  content: template ("Question Review")
+}
+
+template-macro-def (CORRECT_ANSWER) {
+  content: template ("Correct answer")
+}
+
+
+
