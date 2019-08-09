@@ -4,8 +4,8 @@ layout-macro-def (QuizCompleted){
   params {
     param (quiz) {
       type (Quiz)
-      min (Required)
-      max (One)
+      min (Optional)
+      max (Many)
     }
   }
   content{
