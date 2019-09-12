@@ -1,7 +1,7 @@
 hints {
   uncategorized {
-    utterance (start a quiz)
-    utterance (start the president quiz)
-    utterance (start the funny quiz)
+    hint (With Example Quiz, start a quiz)
+    hint (In Example Quiz, start the president quiz)
+    hint (In Example Quiz, start the funny quiz)
   }
 }
