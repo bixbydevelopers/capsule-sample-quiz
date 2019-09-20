@@ -10,7 +10,7 @@ capsule {
       as (core) 
     }
     import (viv.image) {
-      as (image) version (2.12.5)
+      as (image) version (2.12.10)
     }
   }
   runtime-flags {
@@ -19,5 +19,6 @@ capsule {
     concepts-inherit-super-type-features
     modern-prompt-rejection
     support-halt-effect-in-computed-inputs
+    use-input-views-for-selection-list-detail
   }
 }
