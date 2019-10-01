@@ -75,6 +75,52 @@ template-macro-def (COMPLETED_LAST_INCORRECT) {
   }
 }
 
+template-macro-def (HANDS_FREE_OPTION_UNDERFLOW_STATEMENT) {
+  content {
+    template ("This is the first set of options.")
+  }
+}
+
+template-macro-def (HANDS_FREE_OPTION_ITEM_SELECTION_MORE_PAGES) {
+  content {
+    template ("Or, say \"More\" to hear more options.")
+  }
+}
+
+template-macro-def (HANDS_FREE_OPTION_ITEM_SELECTION_LAST_PAGES) {
+  content {
+    template ("That's all the options I have. Which will you choose?")
+  }
+}
+
+
+template-macro-def (HANDS_FREE_OPTION_OVERFLOW_QUESTION) {
+  content {
+    template ("Which option will you choose?")
+  }
+}
+
+template-macro-def (HANDS_FREE_OPTION_OVERFLOW_STATEMENT) {
+  content {
+    template ("There aren't any more options you can choose from.")
+  }
+}
+
+template-macro-def (HANDS_FREE_OPTION_LAST_OPTION) {
+  params {
+    param (page) {
+      type (Option)
+      min (Required) max (Many)
+    }
+  }
+  content {
+    if (size(page) == 1) {
+      template ("The last option is:")
+      } else {
+      template ("The last options are:")
+    }
+  }
+}
 
 
 

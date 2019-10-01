@@ -63,16 +63,6 @@ function buildQuestionFromJson(questionJson) {
   return question
 }
 
-// 
-function buildQuestionToSpeak(question) {
-  var options = question.options
-  optionsString = ''
-  for (var i=0; i< options.length; i++) {
-    optionsString += options[i].alias + '... ' + options[i].text + (i+1 < options.length ? ', ... ' : '')
-  }
-  return optionsString;
-}
-
 function buildAcceptedAnswers(answer, options) {
   var acceptedAnswers = []
   if (Array.isArray(answer)) { //is answer an array?
@@ -112,7 +102,6 @@ function buildQuizzes(searchTerm){
     quiz.score = 0;
     quiz.index = 0;
     var questions = buildQuestionsFromJson(quiz);
-    quiz.textToSpeak = buildQuestionToSpeak(questions[0]);
     //cannot start a quiz without any questions
     if (!questions || !questions.length) {
       console.log("Chosen quiz has no questions!");
@@ -125,6 +114,5 @@ function buildQuizzes(searchTerm){
 }
 
 module.exports = {
-  buildQuizzes:buildQuizzes,
-  buildQuestionToSpeak:buildQuestionToSpeak
+  buildQuizzes:buildQuizzes
 }

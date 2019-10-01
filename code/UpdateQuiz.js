@@ -1,5 +1,3 @@
-const { buildQuestionToSpeak } = require("./lib/util");
-
 module.exports.function = function updateQuiz (quiz, answer) {
   const i = quiz.index;
   const correctAnswers = quiz.questions[i].correctAnswer.acceptedAnswers;
@@ -25,7 +23,6 @@ module.exports.function = function updateQuiz (quiz, answer) {
   }
   
   if(quiz.index < quiz.questions.length - 1){
-    quiz.textToSpeak = buildQuestionToSpeak(quiz.questions[i+1]);
     quiz.index++;
   } else {
     quiz.completed = true;
