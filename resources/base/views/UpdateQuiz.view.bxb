@@ -1,52 +1,63 @@
 // See the UpdatQuiz.dialog for localized strings
 
 input-view {
-  match: Answer(this) {
-    to-input: UpdateQuiz(action)
-  }
-    
-  message {
-    if (action.quiz.index > 0) {  // if not on first question
-      if (action.quiz.questions[action.quiz.index-1].correct) { // if last question correct
-        template ("#{macro('CORRECT_QUESTION_ANSWER', action.quiz)}") {
-        }
-      } else {
-        template ("#{macro('INCORRECT_QUESTION_ANSWER', action.quiz)}") {
-        }
-      }
-    } else { // first question
-      template ("#{macro('FIRST_QUESTION', action.quiz)}")
-    }
-  }
-
-  render {
-    if (size(action.quiz.questions[action.quiz.index].options) > 0) {
-      selection-of (action.quiz.questions[action.quiz.index].options) {
-        where-each (option) {
-          cell-card {
-            slot2 {
-              content {
-                primary {
-                  template ("[#{value(option.alias)}. ]#{value(option.text)}")
-                }
-              }
-            }
-          }
-        }
-      }
-    } else {
-      form {
-        elements {
-          text-input {
-            id (answer)
-            type (Answer)
-          }
-        }
-        on-submit {
-          goal: Answer
-          value: viv.core.FormElement(answer)
-        }
-      }
-    }
-  }
+	match: Answer(this) {
+		to-input: UpdateQuiz(action)
+	}
+	
+	message {
+		if (action.quiz.index > 0) {  // if not on first question
+			if (action.quiz.questions[action.quiz.index].invalidAnswer) { // if could not understand last question answer
+				template ("#{macro('INVALID_QUESTION_ANSWER', action.quiz)}") {
+				}
+			}
+			else-if (action.quiz.questions[action.quiz.index-1].correct) { // if last question correct
+				template ("#{macro('CORRECT_QUESTION_ANSWER', action.quiz)}") {
+				}
+			} else {
+				template ("#{macro('INCORRECT_QUESTION_ANSWER', action.quiz)}") {
+				}
+			}
+		} else { // first question
+			if (action.quiz.questions[action.quiz.index].invalidAnswer) { // if could not understand last question answer
+				template ("#{macro('INVALID_QUESTION_ANSWER', action.quiz)}") {
+				}
+			} else {
+				template ("#{macro('FIRST_QUESTION', action.quiz)}")
+			}
+			
+			
+		}
+	}
+	
+	render {
+		if (size(action.quiz.questions[action.quiz.index].options) > 0) {
+			selection-of (action.quiz.questions[action.quiz.index].options) {
+				where-each (option) {
+					cell-card {
+						slot2 {
+							content {
+								primary {
+									template ("[#{value(option.alias)}. ]#{value(option.text)}")
+								}
+							}
+						}
+					}
+				}
+			}
+		} else {
+			form {
+				elements {
+					text-input {
+						id (answer)
+						type (Answer)
+					}
+				}
+				on-submit {
+					goal: Answer
+					value: viv.core.FormElement(answer)
+				}
+			}
+		}
+	}
 }

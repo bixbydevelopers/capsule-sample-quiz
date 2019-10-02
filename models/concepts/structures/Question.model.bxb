@@ -24,6 +24,12 @@ structure (Question) {
     min (Optional) max (One)
     visibility (Private)
   }
+  property (invalidAnswer) {
+    description (Whether the last answer to this question was invalid)
+    type (core.Boolean)
+    min (Optional) max (One)
+    visibility (Private)
+  }
   property (answer) {
     description (What answer the user provided)
     type (Answer)

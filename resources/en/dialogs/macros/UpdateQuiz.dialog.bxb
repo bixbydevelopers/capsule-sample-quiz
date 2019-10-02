@@ -45,6 +45,21 @@ template-macro-def (INCORRECT_QUESTION_ANSWER) {
   }
 }
 
+template-macro-def (INVALID_QUESTION_ANSWER) {
+  params {
+    param (quiz) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    template ("Sorry, I didn't understand. #{value(quiz.questions[quiz.index].text)}") {
+      speech ("Sorry...I didn't understand... #{value(quiz.questions[quiz.index].text)}... [#{value(quiz.textToSpeak)}]")
+    }
+  }
+}
+
 template-macro-def (COMPLETED_LAST_CORRECT) {
   params {
     param (quiz) {
