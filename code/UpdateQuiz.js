@@ -19,6 +19,8 @@ const ASRaliases = {
   "t": "d",
   "de": "d",
 }
+// Regular expresion to find ASR alias - creatd by ASRaliases const
+const ASRaliasesRE = "^(" + String(Object.getOwnPropertyNames(ASRaliases)).replace('/"/g','').replace(/,/g, "|") + ")";
 
 var console = require('console')
 
@@ -36,13 +38,16 @@ module.exports.function = function updateQuiz(quiz, answer) {
   var correct = false;
   var answeredOption = false;
 
-  // Check for match with answer text e.g. "California"
+
+  // Check for match with answer option e.g. "California" or "B Calfornia" assuming B was the option letter
   // Matches answer only and answer in sentence 
   correctAnswers.forEach(o => {
     lowerO = o.toLowerCase()
-    corrAnsRegExp = lowerO + "| " + lowerO + " |^" + lowerO + " | " + lowerO + "$";
+    corrAnsRegExp = "^" + lowerO + "$|" + ASRaliasesRE + " " + lowerO+ "$"
+    console.log ("corrAnswRegExp = " + corrAnsRegExp)
     if (answer.match(corrAnsRegExp)) {
       correct = true;
+      console.log ("matched new")
     }
   });
 
@@ -57,23 +62,17 @@ module.exports.function = function updateQuiz(quiz, answer) {
       var x = o.alias.toLowerCase()
       possOptionAlias.push(x)
     })
-    
+
     if (!answeredOption) { // Did user answer with an alias and was the alias correct
-      for (var key in ASRaliases) {
-        if (ASRaliases.hasOwnProperty(key)) {
-          if (possOptionAlias.indexOf(ASRaliases[key]) > -1) {
-            if (answer == key) {
-              // User answered with alias
-              answeredOption = true;
-              if (ASRaliases[key] == correctAlias) { // was alias correct answer
-                correct = true;
-              }
-            }
+      if (ASRaliases[answer]) {
+        if (possOptionAlias.indexOf(ASRaliases[answer]) > -1) {
+          answeredOption = true;
+          if (ASRaliases[answer] == correctAlias) {
+            correct = true;
           }
         }
       }
     }
-
   }
 
   if (correct) {
