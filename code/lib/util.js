@@ -154,12 +154,12 @@ function buildQuizzes(searchTerm) {
   return formattedQuizzes;
 }
 
-function arrayToListForSpeech (input) {
-   var output = input.join();
-   output = output.replace(/,/g, '...');
-   output = output.substring(0,output.lastIndexOf("...")) + "... or " + output.substring(output.lastIndexOf("...")+3,output.length)+"..."
-   output = output.toUpperCase();
-   return output;
+function arrayToListForSpeech(input) {
+  var output = input.join();
+  output = output.replace(/,/g, '...');
+  output = output.substring(0, output.lastIndexOf("...")) + "... or " + output.substring(output.lastIndexOf("...") + 3, output.length) + "..."
+  output = output.toUpperCase();
+  return output;
 }
 
 // ASR Aliases to handle ASR variations for "A", "B" "C" or "D" etc
@@ -179,12 +179,62 @@ const inputAliases = {
   "de": "d",
 }
 // Regular expresion to find ASR alias - creatd by ASRaliases const
-const aliasesRE = "^(" + String(Object.getOwnPropertyNames(inputAliases)).replace('/"/g','').replace(/,/g, "|") + ")";
+const aliasesRE = "^(" + String(Object.getOwnPropertyNames(inputAliases)).replace('/"/g', '').replace(/,/g, "|") + ")";
+
+function checkAnswerMatch(correctAnswers, answer) {
+  var correct = false;
+  correctAnswers.forEach(o => {
+    var lowerO = o.toLowerCase()
+    var corrAnsRegExp = "^" + lowerO + "$|" + aliasesRE + " " + lowerO + "$"
+    if (answer.match(corrAnsRegExp)) {
+      correct = true;
+    }
+  });
+  return correct;
+}
+
+function checkIncorrectOption(options, answer) {
+  var answeredOption = false;
+  var possOptionAlias = []
+  options.forEach(o => {
+    lowerO = o.text.toLowerCase();
+    optionsRegExp = lowerO + "| " + lowerO + " |^" + lowerO + " | " + lowerO + "$";
+    if (answer.match(optionsRegExp)) {
+      answeredOption = true;
+    }
+    var x = o.alias.toLowerCase()
+    possOptionAlias.push(x)
+  })
+
+  return {
+    answeredOption: answeredOption,
+    possOptionAlias: possOptionAlias
+  }
+}
+
+function checkAliasMatch(answer, possOptionAlias, correctAlias) {
+  var answeredOption = false;
+  var correct = false;
+  var aliasMatch = inputAliases[answer];
+  if (aliasMatch) {
+    if (possOptionAlias.indexOf(aliasMatch) > -1) {
+      answeredOption = true;
+      if (aliasMatch == correctAlias) {
+        correct = true;
+      }
+    }
+  }
+  return {
+    answeredOption: answeredOption,
+    correct: correct
+  }
+}
 
 module.exports = {
   buildQuizzes: buildQuizzes,
   buildQuestionToSpeak: buildQuestionToSpeak,
   arrayToListForSpeech: arrayToListForSpeech,
-  inputAliases: inputAliases,
-  aliasesRE: aliasesRE
+  checkAnswerMatch: checkAnswerMatch,
+  checkIncorrectOption: checkIncorrectOption,
+  checkAliasMatch: checkAliasMatch,
 }

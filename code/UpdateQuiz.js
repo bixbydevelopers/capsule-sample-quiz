@@ -20,39 +20,20 @@ module.exports.function = function updateQuiz(quiz, answer) {
   var correct = false;
   var answeredOption = false;
 
-
   // Check for match with answer option e.g. "California" or "B Calfornia" assuming B was the option letter
   // Matches answer only and answer in sentence 
-  correctAnswers.forEach(o => {
-    lowerO = o.toLowerCase()
-    corrAnsRegExp = "^" + lowerO + "$|" + util.aliasesRE + " " + lowerO+ "$"
-    if (answer.match(corrAnsRegExp)) {
-      correct = true;
-    }
-  });
+  correct = util.checkAnswerMatch(correctAnswers, answer)
 
   var possOptionAlias = []
   if (!correct && hasOptions) { // Check if user answered an incorrect option text, also contruct possible aliases
-    options.forEach(o => {
-      lowerO = o.text.toLowerCase();
-      optionsRegExp = lowerO + "| " + lowerO + " |^" + lowerO + " | " + lowerO + "$";
-      if (answer.match(optionsRegExp)) {
-        answeredOption = true;
-      }
-      var x = o.alias.toLowerCase()
-      possOptionAlias.push(x)
-    })
+    ret = util.checkIncorrectOption(options, answer)
+    answeredOption = ret.answeredOption;
+    possOptionAlias = ret.possOptionAlias
 
     if (!answeredOption) { // Did user answer with an alias and was the alias correct
-      var aliasMatch = util.inputAliases[answer];
-      if (aliasMatch) {
-        if (possOptionAlias.indexOf(aliasMatch) > -1) {
-          answeredOption = true;
-          if (aliasMatch == correctAlias) {
-            correct = true;
-          }
-        }
-      }
+      ret = util.checkAliasMatch(answer, possOptionAlias, correctAlias)
+      answeredOption = ret.answeredOption;
+      correct = ret.correct
     }
   }
 
