@@ -162,8 +162,29 @@ function arrayToListForSpeech (input) {
    return output;
 }
 
+// ASR Aliases to handle ASR variations for "A", "B" "C" or "D" etc
+// This is a temporary workaround for an in progress bug that will be fixed
+const inputAliases = {
+  "a": "a",
+  "hey": "a",
+  "b": "b",
+  "be": "b",
+  "bee": "b",
+  "c": "c",
+  "see": "c",
+  "sea": "c",
+  "si": "c",
+  "d": "d",
+  "t": "d",
+  "de": "d",
+}
+// Regular expresion to find ASR alias - creatd by ASRaliases const
+const aliasesRE = "^(" + String(Object.getOwnPropertyNames(inputAliases)).replace('/"/g','').replace(/,/g, "|") + ")";
+
 module.exports = {
   buildQuizzes: buildQuizzes,
   buildQuestionToSpeak: buildQuestionToSpeak,
-  arrayToListForSpeech: arrayToListForSpeech
+  arrayToListForSpeech: arrayToListForSpeech,
+  inputAliases: inputAliases,
+  aliasesRE: aliasesRE
 }

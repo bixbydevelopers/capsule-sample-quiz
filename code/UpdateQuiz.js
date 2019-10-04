@@ -4,24 +4,6 @@ const util = require("./lib/util");
 // Futue enhancement would be to reprompt only n times and then give up (suggest n = 1 or 2)
 const reprompt = true;
 
-// ASR Aliases to handle ASR variations for "A", "B" "C" or "D" etc
-const ASRaliases = {
-  "a": "a",
-  "hey": "a",
-  "b": "b",
-  "be": "b",
-  "bee": "b",
-  "c": "c",
-  "see": "c",
-  "sea": "c",
-  "si": "c",
-  "d": "d",
-  "t": "d",
-  "de": "d",
-}
-// Regular expresion to find ASR alias - creatd by ASRaliases const
-const ASRaliasesRE = "^(" + String(Object.getOwnPropertyNames(ASRaliases)).replace('/"/g','').replace(/,/g, "|") + ")";
-
 var console = require('console')
 
 module.exports.function = function updateQuiz(quiz, answer) {
@@ -43,11 +25,9 @@ module.exports.function = function updateQuiz(quiz, answer) {
   // Matches answer only and answer in sentence 
   correctAnswers.forEach(o => {
     lowerO = o.toLowerCase()
-    corrAnsRegExp = "^" + lowerO + "$|" + ASRaliasesRE + " " + lowerO+ "$"
-    console.log ("corrAnswRegExp = " + corrAnsRegExp)
+    corrAnsRegExp = "^" + lowerO + "$|" + util.aliasesRE + " " + lowerO+ "$"
     if (answer.match(corrAnsRegExp)) {
       correct = true;
-      console.log ("matched new")
     }
   });
 
@@ -64,10 +44,11 @@ module.exports.function = function updateQuiz(quiz, answer) {
     })
 
     if (!answeredOption) { // Did user answer with an alias and was the alias correct
-      if (ASRaliases[answer]) {
-        if (possOptionAlias.indexOf(ASRaliases[answer]) > -1) {
+      var aliasMatch = util.inputAliases[answer];
+      if (aliasMatch) {
+        if (possOptionAlias.indexOf(aliasMatch) > -1) {
           answeredOption = true;
-          if (ASRaliases[answer] == correctAlias) {
+          if (aliasMatch == correctAlias) {
             correct = true;
           }
         }
