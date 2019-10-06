@@ -12,6 +12,12 @@ structure (CorrectAnswer) {
     min (Optional) max (Many)
     visibility (Private)
   }
+  property (acceptedAlias) {
+    description (Alias for correct answer)
+    type (core.Text)
+    min (Optional) max (Many)
+    visibility (Private)
+  }
   property (explanation) {
     description (a description of why this is the correct answer)
     type (core.Text)

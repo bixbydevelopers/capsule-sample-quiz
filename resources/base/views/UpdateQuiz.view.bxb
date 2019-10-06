@@ -2,12 +2,16 @@
 
 input-view {
   match: Answer(this) {
-    to-input: UpdateQuiz(action)
+   to-input: UpdateQuiz(action)
   }
-    
+  
   message {
-    if (action.quiz.index > 0) {  // if not on first question
-      if (action.quiz.questions[action.quiz.index-1].correct) { // if last question correct
+    if (action.quiz.index > 0) { // if not on first question
+      if (action.quiz.questions[action.quiz.index].invalidAnswer) { // if could not understand last question answer
+        template ("#{macro('INVALID_QUESTION_ANSWER', action.quiz)}") {
+        }
+      }
+      else-if (action.quiz.questions[action.quiz.index-1].correct) { // if last question correct
         template ("#{macro('CORRECT_QUESTION_ANSWER', action.quiz)}") {
         }
       } else {
@@ -15,10 +19,17 @@ input-view {
         }
       }
     } else { // first question
-      template ("#{macro('FIRST_QUESTION', action.quiz)}")
+      if (action.quiz.questions[action.quiz.index].invalidAnswer) { // if could not understand last question answer
+        template ("#{macro('INVALID_QUESTION_ANSWER', action.quiz)}") {
+        }
+      } else {
+        template ("#{macro('FIRST_QUESTION', action.quiz)}")
+      }
+      
+      
     }
   }
-
+  
   render {
     if (size(action.quiz.questions[action.quiz.index].options) > 0) {
       selection-of (action.quiz.questions[action.quiz.index].options) {
