@@ -1,5 +1,28 @@
 // Localized strings used by UpdateQuiz view
 
+template-macro-def (UPDATE_QUIZ_PROMPT) {
+  params {
+    param (quiz) {
+      type (Quiz)
+      min (Required)
+      max (One)
+    }
+  }
+  content {
+    if (quiz.index > 0) {  // if not on first question
+			if (quiz.questions[quiz.index-1].correct) { // if last question correct
+				template ("#{macro('CORRECT_QUESTION_ANSWER', quiz)}") {
+				}
+			} else {
+				template ("#{macro('INCORRECT_QUESTION_ANSWER', quiz)}") {
+				}
+			}
+		} else { // first question
+			template ("#{macro('FIRST_QUESTION', quiz)}")
+		}
+  }
+}
+
 template-macro-def (FIRST_QUESTION) {
   params {
     param (quiz) {

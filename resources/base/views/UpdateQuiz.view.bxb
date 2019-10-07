@@ -6,17 +6,11 @@ input-view {
 	}
 
 	message {
-		if (action.quiz.index > 0) {  // if not on first question
-			if (action.quiz.questions[action.quiz.index-1].correct) { // if last question correct
-				template ("#{macro('CORRECT_QUESTION_ANSWER', action.quiz)}") {
-				}
-			} else {
-				template ("#{macro('INCORRECT_QUESTION_ANSWER', action.quiz)}") {
-				}
-			}
-		} else { // first question
-			template ("#{macro('FIRST_QUESTION', action.quiz)}")
-		}
+		template-macro (UPDATE_QUIZ_PROMPT) {
+      param (quiz) {
+        expression (action.quiz)
+      }
+    }
 	}
 
 	render {
@@ -40,28 +34,22 @@ input-view {
 					read-many {
 						page-size (5)
 						list-summary {
-							if (action.quiz.index > 0) {  // if not on first question
-								if (action.quiz.questions[action.quiz.index-1].correct) { // if last question correct
-									template ("#{macro('CORRECT_QUESTION_ANSWER', action.quiz)}") {
-									}
-								} else {
-									template ("#{macro('INCORRECT_QUESTION_ANSWER', action.quiz)}") {
-									}
-								}
-							} else { // first question
-								template ("#{macro('FIRST_QUESTION', action.quiz)}")
-							}
+              template-macro (UPDATE_QUIZ_PROMPT) {
+                param (quiz) {
+                  expression (action.quiz)
+                }
+              }
 						}
             page-content (page) {
               underflow-statement {
                 template-macro (HANDS_FREE_OPTION_UNDERFLOW_STATEMENT)
               }
               item-selection-question {
-                if (isFirstNavPage(page) && isLastNavPage(page)) { // you are the only page
+                if (isFirstNavPage(page) && isLastNavPage(page)) {
                   template ("")
                 } else-if (!isLastNavPage(page)) {
                   template-macro (HANDS_FREE_OPTION_ITEM_SELECTION_MORE_PAGES)
-                } else { // make clearer with is last page?
+                } else {
                   template-macro (HANDS_FREE_OPTION_ITEM_SELECTION_LAST_PAGES)
                 }
               }
