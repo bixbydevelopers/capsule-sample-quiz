@@ -21,4 +21,10 @@ capsule {
     support-halt-effect-in-computed-inputs
     use-input-views-for-selection-list-detail
   }
+  store-countries {
+    all
+  }
+  store-sections {
+    section (GamesAndFun)
+  }
 }
