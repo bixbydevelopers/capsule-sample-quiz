@@ -9,9 +9,6 @@ capsule {
     import (viv.core) { 
       as (core) 
     }
-    import (viv.image) {
-      as (image) version (2.12.10)
-    }
   }
   runtime-flags {
     modern-default-view-behavior

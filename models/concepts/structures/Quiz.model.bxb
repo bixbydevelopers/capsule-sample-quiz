@@ -19,7 +19,7 @@ structure (Quiz) {
   }
   property (image) {
     description (Image describing this quiz)
-    type (image.Image)
+    type (core.BaseImage)
     min (Optional) max (One)
     visibility (Private)
   }
