@@ -30,7 +30,7 @@ layout-macro-def (QuizCompleted){
                 image {
                   shape (Circle)
                   url {
-                    if (question.correct == true) {
+                    if (exists(question.correct) && question.correct == true) {
                       template ("/icons/correct.png")
                     } else {
                       template ("/icons/incorrect.png")
@@ -49,7 +49,7 @@ layout-macro-def (QuizCompleted){
                 }
               }
             }
-            if (question.correct == false) {
+            if (exists(question.correct) && question.correct == false) {
               paragraph {
                 style (Detail_L)
                 value {
