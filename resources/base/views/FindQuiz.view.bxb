@@ -26,10 +26,10 @@ input-view {
                 }
               }
               overflow-statement {
-                template ("#{macro('OVERFLOW_STATEMENT')}")
+                template-macro (OVERFLOW_STATEMENT)
               }
               underflow-statement {
-                template ("#{macro('UNDERFLOW_STATEMENT')}")
+                template-macro (UNDERFLOW_STATEMENT)
               }
               page-marker {
                 if (isLastNavPage(page) && !isFirstNavPage(page)){

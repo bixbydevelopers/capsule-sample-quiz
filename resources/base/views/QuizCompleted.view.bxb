@@ -24,7 +24,7 @@ result-view{
   }
    conversation-drivers {
     conversation-driver {
-      template("#{macro('ANOTHER_QUIZ')}")
+      template-macro (ANOTHER_QUIZ)
     }
   }
 }
