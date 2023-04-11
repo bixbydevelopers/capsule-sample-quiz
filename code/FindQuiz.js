@@ -1,6 +1,6 @@
-var console = require("console");
-const { buildQuizzes } = require("./lib/util.js");
+import console from 'console';
+import quizzbuild from "./lib/util.js";
 
-exports.function = function(searchTerm) {
-  return buildQuizzes(searchTerm);
-};
+export default function ({ searchTerm }) {
+  return quizzbuild.buildQuizzes(searchTerm);
+}
