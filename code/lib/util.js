@@ -141,8 +141,6 @@ function buildQuizzes(searchTerm) {
     }
   }
   var formattedQuizzes = [];
-  console.log(quizzes);
-  console.log("tamanho",quizzValue.length);
   //read the questions in the quiz and initialize the state
   for (var i = 0; i < quizzValue.length; i++) {
     var quiz = quizzValue[i];
