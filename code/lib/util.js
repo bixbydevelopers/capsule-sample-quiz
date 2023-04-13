@@ -69,7 +69,7 @@ function buildQuestionFromJson(questionJson) {
 }
 
 //
-function buildQuestionToSpeak(question) {
+export function buildQuestionToSpeak(question) {
   var options = question.options;
   var optionsString = '';
   for (var i = 0; i < options.length; i++) {
@@ -132,7 +132,7 @@ function buildAcceptedAnswer(answer, options) {
   };
 }
 
-function buildQuizzes(searchTerm) {
+export function buildQuizzes(searchTerm) {
   var quizzValue = quizzes;
   if (searchTerm) {
     const foundQuiz = findItems(quizzes, searchTerm);
@@ -160,7 +160,7 @@ function buildQuizzes(searchTerm) {
   return formattedQuizzes;
 }
 
-function arrayToListForSpeech(input) {
+export function arrayToListForSpeech(input) {
   var output = input.join();
   output = output.replace(/,/g, '...');
   output =
@@ -196,7 +196,7 @@ const aliasesRE =
     .replace(/,/g, '|') +
   ')';
 
-function checkAnswerMatch(correctAnswers, answer) {
+export function checkAnswerMatch(correctAnswers, answer) {
   var correct = false;
   correctAnswers.forEach((o) => {
     var lowerO = o.toLowerCase();
@@ -208,7 +208,7 @@ function checkAnswerMatch(correctAnswers, answer) {
   return correct;
 }
 
-function checkIncorrectOption(options, answer) {
+export function checkIncorrectOption(options, answer) {
   var answeredOption = false;
   var possOptionAlias = [];
   options.forEach((o) => {
@@ -228,7 +228,7 @@ function checkIncorrectOption(options, answer) {
   };
 }
 
-function checkAliasMatch(answer, possOptionAlias, correctAlias) {
+export function checkAliasMatch(answer, possOptionAlias, correctAlias) {
   var answeredOption = false;
   var correct = false;
   var aliasMatch = inputAliases[answer];
@@ -245,12 +245,3 @@ function checkAliasMatch(answer, possOptionAlias, correctAlias) {
     correct: correct,
   };
 }
-
-export default {
-  buildQuizzes: buildQuizzes,
-  buildQuestionToSpeak: buildQuestionToSpeak,
-  arrayToListForSpeech: arrayToListForSpeech,
-  checkAnswerMatch: checkAnswerMatch,
-  checkIncorrectOption: checkIncorrectOption,
-  checkAliasMatch: checkAliasMatch,
-};

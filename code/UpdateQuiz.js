@@ -1,4 +1,4 @@
-import util from "./lib/util";
+import * as util from "./lib/util";
 
 // Will repromt if the user does not give a valid input. Set to false to not reprompt
 // Futue enhancement would be to reprompt only n times and then give up (suggest n = 1 or 2)
