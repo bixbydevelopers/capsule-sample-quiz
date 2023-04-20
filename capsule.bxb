@@ -1,16 +1,18 @@
 capsule {
   id (example.quiz)
-  version (0.1.0)
+  version (0.2.0)   //JSRS migration VCAP-24311
   format (3)
   targets {
     target (bixby-mobile-en-US)
   }
   capsule-imports {
-    import (viv.core) { 
-      as (core) 
+    import (viv.core) {
+      as (core)
     }
   }
-  runtime-version (2)
+  runtime-version (2) {
+    js-runtime-version (2)
+  }
   store-countries {
     all
   }

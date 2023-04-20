@@ -1,3 +1,3 @@
-module.exports.function = function startQuiz (quiz) {
+export default function startQuiz({ quiz }) {
   return quiz;
 }
